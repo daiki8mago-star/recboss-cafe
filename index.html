@@ -72,7 +72,8 @@ body.fs-xlarge { font-size: 22px; }
   justify-content: flex-end;
   align-items: center;
   gap: 8px;
-  padding: 6px 24px;
+  /* 最上部要素：iPhoneのセーフエリア（上・左右）を確保 */
+  padding: max(6px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right)) 6px max(24px, env(safe-area-inset-left));
   font-size: 14px;
 }
 .fsbar span { color: var(--sub); margin-right: 4px; }
@@ -94,16 +95,20 @@ header {
   position: sticky; top: 0; z-index: 900;
   background: #fff;
   box-shadow: 0 2px 10px rgba(0,0,0,.06);
-  padding: 0 28px;
-  height: 80px;
+  /* iPhoneのDynamic Island/セーフエリア分を上と左右に確保 */
+  padding: 0 max(28px, env(safe-area-inset-right)) 0 max(28px, env(safe-area-inset-left));
+  min-height: 80px;
   display: flex; align-items: center; justify-content: space-between;
 }
 .logo {
   font-family: "Zen Maru Gothic", sans-serif;
   font-weight: 900; font-size: 1.5rem; letter-spacing: .02em;
   color: var(--pink);
+  line-height: 1.2;          /* 継承していた1.9を解除して窮屈さを防ぐ */
+  white-space: nowrap;       /* ロゴが折り返して見切れるのを防ぐ */
+  padding: 8px 0;            /* 上下に余白を確保 */
 }
-.logo small { display: block; font-size: .6rem; color: var(--sub); letter-spacing: .15em; font-weight: 500; }
+.logo small { display: block; font-size: .6rem; color: var(--sub); letter-spacing: .15em; font-weight: 500; line-height: 1.4; margin-top: 2px; }
 .nav { display: flex; align-items: center; gap: 26px; list-style: none; }
 .nav a { font-size: .95rem; font-weight: 700; color: var(--ink); transition: color .2s; }
 .nav a:hover { color: var(--pink); }
@@ -460,7 +465,8 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
 @media (max-width: 940px) {
   .nav, .nav-tel { display: none; }
   .hbg { display: flex; }
-  header { padding: 0 20px; height: 70px; }
+  header { padding: 0 max(20px, env(safe-area-inset-right)) 0 max(20px, env(safe-area-inset-left)); min-height: 68px; }
+  .logo { font-size: 1.35rem; }
   .mobile-nav {
     display: none; position: fixed; top: 70px; left: 0; right: 0; bottom: 0;
     background: #fff; z-index: 850; padding: 24px; overflow-y: auto;
