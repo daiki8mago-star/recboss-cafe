@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RECBOSS & CAFE｜龍ケ崎市のシニア向けフィットネス＆健康カフェ</title>
+  <meta name="description" content="茨城県龍ケ崎市のシニア向けフィットネス＆健康カフェ。椅子に座ったままできる、膝や腰にやさしい運動で無理なく健康づくり。初回体験無料。毎週火・金開催、予約不要。お電話080-5210-1914。">
+  <meta name="theme-color" content="#4a9d6e">
+  <meta name="format-detection" content="telephone=yes">
+  <!-- SNSシェア用 -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="RECBOSS & CAFE｜龍ケ崎市のシニア向けフィットネス＆健康カフェ">
+  <meta property="og:description" content="椅子に座ったままできる、膝や腰にやさしい運動。初回体験無料、まずは気軽にお越しください。">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  background: #fff;
+  color: #333;
+  font-size: 18px;          /* シニア配慮：大きめ基準 */
+  line-height: 1.9;
+  -webkit-text-size-adjust: 100%;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+.round { font-family: "Zen Maru Gothic", sans-serif; }
+
+/* インラインSVGアイコン（絵文字の代替） */
+.ico { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; display: inline-block; vertical-align: middle; }
+
+/* ── TOKENS ── */
+:root {
+  --pink:      #4a9d6e;   /* ライトグリーン */
+  --pink-dark: #3d8259;
+  --pink-soft: #dcefe2;
+  --pink-pale: #f1f9f4;
+  --orange:    #f5a623;
+  --ink:       #333;
+  --sub:       #666;
+  --line:      #e3eee7;
+}
+
+/* キーボード操作時のフォーカス可視化（アクセシビリティ） */
+:focus-visible { outline: 3px solid var(--pink); outline-offset: 2px; border-radius: 4px; }
+
+/* 動きに敏感な方へ配慮：アニメーションを抑制 */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  [data-r] { opacity: 1 !important; transform: none !important; }
+  html { scroll-behavior: auto; }
+}
+
+/* 文字サイズ調整（bodyクラスで切替） */
+body.fs-large  { font-size: 20px; }
+body.fs-xlarge { font-size: 22px; }
+
+/* ══════════════════════════════
+   FONT-SIZE BAR（最上部）
+══════════════════════════════ */
+.fsbar {
+  background: var(--pink-pale);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 24px;
+  font-size: 14px;
+}
+.fsbar span { color: var(--sub); margin-right: 4px; }
+.fsbtn {
+  border: 1px solid #c9d8cf; background: #fff; cursor: pointer;
+  border-radius: 8px; padding: 6px 16px; min-height: 40px; min-width: 48px;
+  font-family: inherit; color: var(--sub); font-weight: 700;
+  transition: background .2s, color .2s, border-color .2s;
+}
+.fsbtn.active { background: var(--pink); color: #fff; border-color: var(--pink); }
+.fsbtn.s1 { font-size: 13px; }
+.fsbtn.s2 { font-size: 15px; }
+.fsbtn.s3 { font-size: 17px; }
+
+/* ══════════════════════════════
+   HEADER
+══════════════════════════════ */
+header {
+  position: sticky; top: 0; z-index: 900;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,.06);
+  padding: 0 28px;
+  height: 80px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.logo {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 900; font-size: 1.5rem; letter-spacing: .02em;
+  color: var(--pink);
+}
+.logo small { display: block; font-size: .6rem; color: var(--sub); letter-spacing: .15em; font-weight: 500; }
+.nav { display: flex; align-items: center; gap: 26px; list-style: none; }
+.nav a { font-size: .95rem; font-weight: 700; color: var(--ink); transition: color .2s; }
+.nav a:hover { color: var(--pink); }
+.nav-tel {
+  display: flex; flex-direction: column; align-items: flex-end;
+  line-height: 1.3;
+}
+.nav-tel small { font-size: .65rem; color: var(--sub); }
+.nav-tel b { font-family: "Zen Maru Gothic", sans-serif; font-size: 1.15rem; color: var(--pink); }
+.nav-cta {
+  background: var(--pink); color: #fff !important;
+  font-weight: 900; font-size: .95rem;
+  padding: 12px 24px; border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(74,157,110,.35);
+  transition: background .2s, transform .15s !important;
+}
+.nav-cta:hover { background: var(--pink-dark); transform: translateY(-2px); }
+.hbg { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+.hbg span { display: block; width: 26px; height: 3px; background: var(--pink); border-radius: 3px; }
+
+/* ══════════════════════════════
+   HERO
+══════════════════════════════ */
+.hero { position: relative; overflow: hidden; background: var(--pink-pale); }
+.hero-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1.05fr .95fr;
+  align-items: center; gap: 40px;
+  padding: 56px 28px 64px;
+}
+.hero-badge {
+  display: inline-block; background: var(--orange); color: #fff;
+  font-weight: 900; font-size: .95rem;
+  padding: 8px 20px; border-radius: 999px; margin-bottom: 24px;
+}
+.hero-h1 {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.1rem, 4.4vw, 3.4rem);
+  line-height: 1.4; color: var(--ink); margin-bottom: 20px;
+}
+.hero-h1 .pk { color: var(--pink); }
+.hero-h1 .marker {
+  background: linear-gradient(transparent 62%, #ffe08a 62%);
+  padding: 0 4px;
+}
+.hero-lead { font-size: 1.05rem; color: var(--sub); margin-bottom: 32px; font-weight: 500; }
+.hero-btns { display: flex; flex-wrap: wrap; gap: 14px; }
+.btn-pink {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--pink); color: #fff;
+  font-family: "Zen Maru Gothic", sans-serif; font-weight: 900;
+  font-size: 1.15rem; padding: 18px 36px; border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(74,157,110,.4);
+  transition: background .2s, transform .15s;
+}
+.btn-pink:hover { background: var(--pink-dark); transform: translateY(-2px); }
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #fff; color: var(--pink); border: 2px solid var(--pink);
+  font-family: "Zen Maru Gothic", sans-serif; font-weight: 900;
+  font-size: 1.1rem; padding: 16px 32px; border-radius: 999px;
+  transition: background .2s, color .2s;
+}
+.btn-outline:hover { background: var(--pink); color: #fff; }
+.hero-photo {
+  position: relative;
+  border-radius: 24px; overflow: hidden;
+  box-shadow: 0 20px 50px rgba(74,157,110,.2);
+}
+.hero-photo img { width: 100%; height: 460px; object-fit: cover; }
+.hero-photo-tag {
+  position: absolute; left: 20px; bottom: 20px;
+  background: #fff; border-radius: 16px; padding: 14px 22px;
+  font-family: "Zen Maru Gothic", sans-serif; font-weight: 900;
+  color: var(--pink); box-shadow: 0 6px 18px rgba(0,0,0,.12);
+  line-height: 1.3;
+}
+.hero-photo-tag small { display: block; font-size: .7rem; color: var(--sub); font-weight: 500; }
+.hero-photo-tag b { font-size: 1.6rem; }
+
+/* ══════════════════════════════
+   POINT BAR（3つの安心）
+══════════════════════════════ */
+.pointbar { background: var(--pink); padding: 0; }
+.pointbar-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+}
+.point {
+  padding: 28px 24px; text-align: center; color: #fff;
+  border-right: 1px solid rgba(255,255,255,.2);
+}
+.point:last-child { border-right: none; }
+.point-em { display: block; margin-bottom: 10px; }
+.point-em .ico { width: 42px; height: 42px; }
+.point b { font-family: "Zen Maru Gothic", sans-serif; font-size: 1.15rem; display: block; }
+.point span { font-size: .9rem; opacity: .9; }
+
+/* ══════════════════════════════
+   COMMON SECTION
+══════════════════════════════ */
+.section { padding: 80px 28px; }
+.wrap { max-width: 1100px; margin: 0 auto; }
+.head { text-align: center; margin-bottom: 52px; }
+.head .en {
+  display: inline-block; color: var(--pink); font-weight: 900;
+  font-size: .85rem; letter-spacing: .2em; margin-bottom: 10px;
+}
+.head h2 {
+  font-family: "Zen Maru Gothic", sans-serif; font-weight: 900;
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem); color: var(--ink); line-height: 1.4;
+}
+.head h2 .pk { color: var(--pink); }
+.head .lead { color: var(--sub); margin-top: 14px; font-weight: 500; }
+.head-deco {
+  display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 14px;
+}
+.head-deco::before, .head-deco::after { content: ""; width: 40px; height: 2px; background: var(--pink-soft); }
+.head-deco i { color: var(--pink); font-style: normal; }
+
+/* ══════════════════════════════
+   ABOUT
+══════════════════════════════ */
+.about { background: var(--pink-pale); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.about-photo { border-radius: 24px; overflow: hidden; box-shadow: 0 16px 40px rgba(74,157,110,.15); }
+.about-photo img { width: 100%; height: 440px; object-fit: cover; }
+.about-text h3 {
+  font-family: "Zen Maru Gothic", sans-serif; font-weight: 900;
+  font-size: clamp(1.5rem, 2.8vw, 2.1rem); line-height: 1.5; color: var(--ink); margin-bottom: 24px;
+}
+.about-text h3 .pk { color: var(--pink); }
+.about-text p { color: var(--sub); font-weight: 500; }
+.about-text p + p { margin-top: 18px; }
+
+/* ══════════════════════════════
+   FEATURES
+══════════════════════════════ */
+.features { background: #fff; }
+.feat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.feat {
+  background: var(--pink-pale); border-radius: 20px; padding: 36px 32px;
+  display: flex; gap: 22px; align-items: flex-start;
+  transition: transform .2s, box-shadow .2s;
+}
+.feat:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(74,157,110,.15); }
+.feat-no {
+  flex-shrink: 0;
+  width: 64px; height: 64px; border-radius: 50%;
+  background: var(--pink); color: #fff;
+  font-family: "Zen Maru Gothic", sans-serif; font-weight: 900; font-size: 1.6rem;
+  display: grid; place-items: center;
+}
+.feat h4 { display: flex; align-items: center; gap: 10px; }
+.feat-em { color: var(--pink); display: inline-flex; flex-shrink: 0; }
+.feat-em .ico { width: 26px; height: 26px; }
+.feat h4 {
+  font-family: "Zen Maru Gothic", sans-serif; font-weight: 900;
+  font-size: 1.25rem; color: var(--ink); margin-bottom: 8px;
+}
+.feat p { font-size: .95rem; color: var(--sub); font-weight: 500; line-height: 1.8; }
+
+/* ══════════════════════════════
+   SCHEDULE
+══════════════════════════════ */
+.schedule { background: var(--pink-pale); }
+.sch-table {
+  width: 100%; border-collapse: separate; border-spacing: 0;
+  background: #fff; border-radius: 20px; overflow: hidden;
+  box-shadow: 0 10px 30px rgba(74,157,110,.1);
+}
+.sch-table th {
+  background: var(--pink); color: #fff;
+  font-family: "Zen Maru Gothic", sans-serif; font-weight: 900;
+  padding: 18px 16px; font-size: 1.05rem;
+}
+.sch-table td {
+  padding: 20px 16px; text-align: center; font-weight: 500;
+  border-bottom: 1px solid var(--line);
+}
+.sch-table tr:last-child td { border-bottom: none; }
+.sch-table tbody tr:hover td { background: var(--pink-pale); }
+.td-time { font-weight: 900; color: var(--pink); white-space: nowrap; }
+.cls {
+  display: inline-block; background: var(--pink-soft); color: var(--pink-dark);
+  font-weight: 700; font-size: .95rem; padding: 6px 16px; border-radius: 999px;
+}
+.cls.off { background: #f3f3f3; color: #bbb; font-weight: 500; }
+.td-tg { font-size: .85rem; color: var(--sub); }
+.sch-note { text-align: center; color: var(--sub); font-size: .9rem; margin-top: 20px; font-weight: 500; }
+
+/* ══════════════════════════════
+   PLANS
+══════════════════════════════ */
+.plans { background: #fff; }
+.plan-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.plan {
+  border: 2px solid var(--line); border-radius: 22px; padding: 36px 26px;
+  text-align: center; position: relative; transition: transform .2s, box-shadow .2s;
+}
+.plan:hover { transform: translateY(-5px); box-shadow: 0 16px 36px rgba(74,157,110,.14); }
+.plan.star { border-color: var(--pink); background: var(--pink-pale); }
+.plan-ribbon {
+  position: absolute; top: -16px; left: 50%; transform: translateX(-50%);
+  background: var(--orange); color: #fff;
+  font-family: "Zen Maru Gothic", sans-serif; font-weight: 900; font-size: .9rem;
+  padding: 6px 20px; border-radius: 999px; white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(245,166,35,.35);
+}
+.plan-name { font-family: "Zen Maru Gothic", sans-serif; font-weight: 900; font-size: 1.2rem; color: var(--ink); margin-bottom: 8px; }
+.plan-cap { font-size: .85rem; color: var(--sub); margin-bottom: 16px; font-weight: 500; }
+.plan-price { font-family: "Zen Maru Gothic", sans-serif; font-weight: 900; font-size: 2.6rem; color: var(--pink); line-height: 1; }
+.plan-price sub { font-size: .95rem; color: var(--sub); vertical-align: baseline; font-family: "Noto Sans JP"; font-weight: 700; }
+.plan-feats { list-style: none; margin: 22px 0; text-align: left; }
+.plan-feats li { font-size: .92rem; color: var(--ink); padding: 9px 0; border-bottom: 1px dashed var(--line); display: flex; gap: 8px; font-weight: 500; }
+.plan-feats li::before { content: "✓"; color: var(--pink); font-weight: 900; }
+.plan-btn {
+  display: block; background: var(--pink); color: #fff;
+  font-family: "Zen Maru Gothic", sans-serif; font-weight: 900; font-size: 1rem;
+  padding: 14px; border-radius: 999px; transition: background .2s;
+}
+.plan-btn:hover { background: var(--pink-dark); }
+.plan:not(.star) .plan-btn { background: #fff; color: var(--pink); border: 2px solid var(--pink); }
+.plan:not(.star) .plan-btn:hover { background: var(--pink); color: #fff; }
+
+/* ══════════════════════════════
+   CAFE
+══════════════════════════════ */
+.cafe { background: var(--pink-pale); }
+.cafe-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.cafe-photo { border-radius: 24px; overflow: hidden; box-shadow: 0 16px 40px rgba(74,157,110,.15); }
+.cafe-photo img { width: 100%; height: 460px; object-fit: cover; }
+.cafe-text h3 { font-family: "Zen Maru Gothic", sans-serif; font-weight: 900; font-size: clamp(1.5rem,2.6vw,2rem); color: var(--ink); margin-bottom: 12px; }
+.cafe-text h3 .pk { color: var(--pink); }
+.cafe-text > p { color: var(--sub); font-weight: 500; margin-bottom: 24px; }
+.menu-row { display: flex; align-items: baseline; padding: 14px 0; border-bottom: 1px dashed var(--line); }
+.menu-row:first-of-type { border-top: 1px dashed var(--line); }
+.menu-name { font-weight: 500; }
+.menu-dots { flex: 1; border-bottom: 1px dotted #ccc; margin: 0 10px; margin-bottom: 4px; }
+.menu-price { font-family: "Zen Maru Gothic", sans-serif; font-weight: 900; color: var(--pink); white-space: nowrap; }
+
+/* ══════════════════════════════
+   GALLERY
+══════════════════════════════ */
+.gallery { background: #fff; }
+.mosaic { display: grid; grid-template-columns: repeat(12,1fr); grid-template-rows: 240px 240px; gap: 10px; }
+.g { overflow: hidden; border-radius: 16px; }
+.g img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+.g:hover img { transform: scale(1.06); }
+.g1 { grid-column: span 5; grid-row: span 2; }
+.g2 { grid-column: span 4; }
+.g3 { grid-column: span 3; }
+.g4 { grid-column: span 4; }
+.g5 { grid-column: span 3; }
+.ig-row { text-align: center; margin-top: 32px; }
+.ig-link {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: var(--pink-pale); border-radius: 999px; padding: 12px 28px;
+  font-family: "Zen Maru Gothic", sans-serif; font-weight: 900; color: var(--pink);
+  transition: background .2s;
+}
+.ig-link:hover { background: var(--pink-soft); }
+.ig-dot { width: 34px; height: 34px; border-radius: 9px; background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); display: grid; place-items: center; font-size: 1.1rem; }
+
+/* ══════════════════════════════
+   REVIEWS
+══════════════════════════════ */
+.reviews { background: var(--pink-pale); }
+.rev-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.rev { background: #fff; border-radius: 20px; padding: 34px 30px; box-shadow: 0 8px 24px rgba(74,157,110,.08); }
+.rev-stars { color: var(--orange); font-size: 1.1rem; margin-bottom: 14px; }
+.rev-text { color: var(--ink); font-weight: 500; margin-bottom: 20px; font-size: .98rem; }
+.rev-who { display: flex; align-items: center; gap: 12px; }
+.rev-ava { width: 46px; height: 46px; border-radius: 50%; background: var(--pink-soft); display: grid; place-items: center; font-size: 1.3rem; }
+.rev-who b { font-family: "Zen Maru Gothic", sans-serif; font-weight: 700; color: var(--pink); font-size: .95rem; }
+
+/* ══════════════════════════════
+   ACCESS
+══════════════════════════════ */
+.access { background: #fff; }
+.access-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: start; }
+.acc-row { display: flex; gap: 18px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+.acc-row:first-child { border-top: 1px solid var(--line); }
+.acc-ic { width: 52px; height: 52px; border-radius: 14px; background: var(--pink-pale); color: var(--pink); display: grid; place-items: center; flex-shrink: 0; }
+.acc-ic .ico { width: 26px; height: 26px; }
+.acc-k { font-family: "Zen Maru Gothic", sans-serif; font-weight: 900; color: var(--pink); font-size: .9rem; margin-bottom: 4px; }
+.acc-v { color: var(--ink); font-weight: 500; }
+.map-box { background: var(--pink-pale); border-radius: 20px; height: 420px; display: grid; place-items: center; text-align: center; color: var(--sub); gap: 8px; }
+.map-box .em { font-size: 2.4rem; }
+
+/* ══════════════════════════════
+   FAQ
+══════════════════════════════ */
+.faq { background: var(--pink-pale); }
+.faq-wrap { max-width: 820px; margin: 0 auto; }
+details { background: #fff; border-radius: 16px; margin-bottom: 14px; overflow: hidden; box-shadow: 0 4px 14px rgba(74,157,110,.06); }
+summary { list-style: none; cursor: pointer; padding: 22px 26px; display: flex; align-items: center; gap: 16px; font-weight: 700; font-size: 1.02rem; }
+summary::-webkit-details-marker { display: none; }
+.q-mark { font-family: "Zen Maru Gothic", sans-serif; font-weight: 900; color: var(--pink); font-size: 1.3rem; flex-shrink: 0; }
+.q-plus { margin-left: auto; width: 30px; height: 30px; border-radius: 50%; background: var(--pink-soft); color: var(--pink); display: grid; place-items: center; flex-shrink: 0; font-weight: 900; transition: background .2s, color .2s; }
+details[open] .q-plus { background: var(--pink); color: #fff; }
+.faq-a { padding: 0 26px 24px 64px; color: var(--sub); font-weight: 500; }
+
+/* ══════════════════════════════
+   CTA
+══════════════════════════════ */
+.cta { background: linear-gradient(135deg, var(--pink) 0%, var(--pink-dark) 100%); padding: 80px 28px; text-align: center; color: #fff; }
+.cta h2 { font-family: "Zen Maru Gothic", sans-serif; font-weight: 900; font-size: clamp(1.9rem, 4vw, 3rem); line-height: 1.4; margin-bottom: 16px; }
+.cta .marker { background: linear-gradient(transparent 60%, rgba(255,255,255,.3) 60%); padding: 0 4px; }
+.cta p { font-size: 1.05rem; opacity: .95; margin-bottom: 36px; font-weight: 500; }
+.cta .btn-white {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: #fff; color: var(--pink);
+  font-family: "Zen Maru Gothic", sans-serif; font-weight: 900; font-size: 1.25rem;
+  padding: 20px 48px; border-radius: 999px; box-shadow: 0 10px 28px rgba(0,0,0,.2);
+  transition: transform .15s;
+}
+.cta .btn-white:hover { transform: translateY(-3px); }
+.cta-tel { margin-top: 26px; font-family: "Zen Maru Gothic", sans-serif; }
+.cta-tel small { display: block; font-size: .85rem; opacity: .85; font-weight: 500; font-family: "Noto Sans JP"; }
+.cta-tel b { font-size: 2rem; }
+
+/* ══════════════════════════════
+   FOOTER
+══════════════════════════════ */
+footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28px; }
+.foot-row { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 36px; margin-bottom: 40px; }
+.foot-logo { font-family: "Zen Maru Gothic", sans-serif; font-weight: 900; font-size: 1.4rem; color: #fff; margin-bottom: 12px; }
+.foot-copy { font-size: .88rem; line-height: 1.9; }
+.foot-col h4 { font-family: "Zen Maru Gothic", sans-serif; color: #fff; font-size: .95rem; margin-bottom: 14px; }
+.foot-links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.foot-links a { font-size: .9rem; color: rgba(255,255,255,.6); transition: color .2s; }
+.foot-links a:hover { color: #fff; }
+.foot-bar { max-width: 1100px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.12); padding-top: 22px; text-align: center; font-size: .82rem; color: rgba(255,255,255,.45); }
+
+/* ══════════════════════════════
+   REVEAL
+══════════════════════════════ */
+[data-r] { opacity: 0; transform: translateY(24px); transition: opacity .7s, transform .7s; }
+[data-r].in { opacity: 1; transform: none; }
+[data-r="1"] { transition-delay: .1s; }
+[data-r="2"] { transition-delay: .2s; }
+[data-r="3"] { transition-delay: .3s; }
+
+/* ══════════════════════════════
+   FLOATING CTA（モバイル）
+══════════════════════════════ */
+.float-cta { display: none; }
+
+/* ══════════════════════════════
+   RESPONSIVE
+══════════════════════════════ */
+@media (max-width: 940px) {
+  .nav, .nav-tel { display: none; }
+  .hbg { display: flex; }
+  header { padding: 0 20px; height: 70px; }
+  .mobile-nav {
+    display: none; position: fixed; top: 70px; left: 0; right: 0; bottom: 0;
+    background: #fff; z-index: 850; padding: 24px; overflow-y: auto;
+  }
+  .mobile-nav.open { display: block; }
+  .mobile-nav a { display: block; padding: 16px 4px; font-weight: 700; font-size: 1.1rem; border-bottom: 1px solid var(--line); }
+  .mobile-nav .mn-tel { margin-top: 24px; text-align: center; font-family: "Zen Maru Gothic"; }
+  .mobile-nav .mn-tel b { font-size: 1.8rem; color: var(--pink); display: block; }
+
+  .hero-inner { grid-template-columns: 1fr; padding: 36px 20px 48px; }
+  .hero-photo { order: -1; }
+  .hero-photo img { height: 300px; }
+
+  .pointbar-inner { grid-template-columns: 1fr; }
+  .point { border-right: none; border-bottom: 1px solid rgba(255,255,255,.2); padding: 18px; }
+  .point:last-child { border-bottom: none; }
+
+  .section { padding: 56px 20px; }
+  .about-grid, .cafe-grid, .access-grid { grid-template-columns: 1fr; gap: 32px; }
+  .about-photo img, .cafe-photo img { height: 280px; }
+  .cafe-photo { order: -1; }
+  .feat-grid { grid-template-columns: 1fr; }
+  .plan-grid { grid-template-columns: 1fr 1fr; }
+  .rev-grid { grid-template-columns: 1fr; }
+
+  .mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3,180px); }
+  .g1,.g2,.g3,.g4,.g5 { grid-column: span 1; grid-row: span 1; }
+  .g1 { grid-column: span 2; }
+
+  .foot-row { flex-direction: column; }
+
+  /* スクロール追従の予約ボタン */
+  .float-cta {
+    display: block; position: fixed; bottom: 0; left: 0; right: 0; z-index: 800;
+    background: #fff; box-shadow: 0 -4px 16px rgba(0,0,0,.1); padding: 10px 16px;
+  }
+  .float-cta a {
+    display: block; text-align: center; background: var(--pink); color: #fff;
+    font-family: "Zen Maru Gothic"; font-weight: 900; font-size: 1.15rem;
+    padding: 14px; border-radius: 999px;
+  }
+  body { padding-bottom: 78px; }
+}
+@media (max-width: 520px) {
+  .plan-grid { grid-template-columns: 1fr; }
+  .sch-table { font-size: .85rem; }
+  .sch-table th, .sch-table td { padding: 12px 8px; }
+  .cls { padding: 5px 10px; font-size: .82rem; }
+}
+  </style>
+</head>
+<body>
+
+<!-- SVGアイコン定義（画面には表示されない） -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6l7-3Z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-usercheck" viewBox="0 0 24 24"><circle cx="9.5" cy="8" r="3.5"/><path d="M4 20a6 6 0 0 1 11 0"/><path d="M16 11l2 2 4-4"/></symbol>
+  <symbol id="i-coffee" viewBox="0 0 24 24"><path d="M5 9h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5V9Z"/><path d="M16 10h2a2 2 0 0 1 0 4h-2"/><path d="M8 3v2.5M11 3v2.5"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 5.5a3 3 0 0 1 0 5.8"/><path d="M18 14a6 6 0 0 1 3 5"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6-5.7-6-10a6 6 0 0 1 12 0c0 4.3-6 10-6 10Z"/><circle cx="12" cy="11" r="2.5"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 10h16M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.5 3.5a1 1 0 0 1 1 .7l1 3a1 1 0 0 1-.3 1.1L7 9.5a12 12 0 0 0 7.5 7.5l1.2-1.2a1 1 0 0 1 1.1-.3l3 1a1 1 0 0 1 .7 1V20a2 2 0 0 1-2 2A16 16 0 0 1 4.5 5.5a2 2 0 0 1 2-2Z"/></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24"><path d="M5 13l1.6-4.3A2 2 0 0 1 8.5 7.4h7a2 2 0 0 1 1.9 1.3L19 13"/><rect x="3" y="13" width="18" height="6" rx="2"/><circle cx="7.5" cy="19" r="1.4"/><circle cx="16.5" cy="19" r="1.4"/></symbol>
+</svg>
+
+<!-- 文字サイズ調整バー -->
+<div class="fsbar">
+  <span>文字サイズ</span>
+  <button class="fsbtn s1" data-fs="">小</button>
+  <button class="fsbtn s2 active" data-fs="fs-large">中</button>
+  <button class="fsbtn s3" data-fs="fs-xlarge">大</button>
+</div>
+
+<!-- ════ HEADER ════ -->
+<header>
+  <a href="#" class="logo">RECBOSS &amp; CAFE<small>龍ケ崎市 シニアフィットネス</small></a>
+  <ul class="nav">
+    <li><a href="#about">RECBOSSとは</a></li>
+    <li><a href="#schedule">スケジュール</a></li>
+    <li><a href="#plans">料金</a></li>
+    <li><a href="#cafe">カフェ</a></li>
+    <li><a href="#access">アクセス</a></li>
+  </ul>
+  <div style="display:flex; align-items:center; gap:18px;">
+    <a href="tel:08052101914" class="nav-tel">
+      <small>お電話でのお問い合わせ</small>
+      <b>080-5210-1914</b>
+    </a>
+    <a href="https://rad-sopapillas-4a7d91.netlify.app/" target="_blank" class="nav-cta">無料体験予約</a>
+  </div>
+  <button class="hbg" id="hbg" aria-label="メニュー"><span></span><span></span><span></span></button>
+</header>
+
+<!-- モバイルメニュー -->
+<div class="mobile-nav" id="mnav">
+  <a href="#about">RECBOSSとは</a>
+  <a href="#schedule">スケジュール</a>
+  <a href="#plans">料金プラン</a>
+  <a href="#cafe">健康カフェ</a>
+  <a href="#gallery">ギャラリー</a>
+  <a href="#access">アクセス</a>
+  <a href="#faq">よくある質問</a>
+  <div class="mn-tel">
+    <small>お電話はこちら</small>
+    <b>080-5210-1914</b>
+  </div>
+</div>
+
+<!-- ════ HERO ════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <span class="hero-badge">🎉 初回体験 無料キャンペーン中</span>
+      <h1 class="hero-h1">
+        <span class="marker">座ったまま</span>でOK。<br>
+        <span class="pk">何歳からでも</span>、<br>
+        元気な体は作れます。
+      </h1>
+      <p class="hero-lead">
+        龍ケ崎市のシニア向けフィットネス＆健康カフェ。<br>
+        膝や腰にやさしい運動で、仲間と楽しく健康づくり。
+      </p>
+      <div class="hero-btns">
+        <a href="https://rad-sopapillas-4a7d91.netlify.app/" target="_blank" class="btn-pink">無料体験を予約する　→</a>
+        <a href="tel:08052101914" class="btn-outline">📞 電話で問い合わせ</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1000&h=900&fit=crop&q=85" fetchpriority="high" decoding="async" alt="シニアの方々が笑顔で運動している様子">
+      <div class="hero-photo-tag">
+        <small>地域で愛されて</small>
+        <b>2年</b>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ POINT BAR ════ -->
+<div class="pointbar">
+  <div class="pointbar-inner">
+    <div class="point"><span class="point-em"><svg class="ico"><use href="#i-shield"/></svg></span><b>座ったままOK</b><span>転倒の心配なし</span></div>
+    <div class="point"><span class="point-em"><svg class="ico"><use href="#i-clock"/></svg></span><b>1回たった60分</b><span>無理なく続く</span></div>
+    <div class="point"><span class="point-em"><svg class="ico"><use href="#i-coffee"/></svg></span><b>カフェ併設</b><span>運動後の楽しみ</span></div>
+  </div>
+</div>
+
+<!-- ════ ABOUT ════ -->
+<section class="section about" id="about">
+  <div class="wrap">
+    <div class="head">
+      <span class="en">ABOUT US</span>
+      <h2>RECBOSS &amp; CAFE<span class="pk">とは</span></h2>
+      <div class="head-deco"><i>🌿</i></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-photo" data-r>
+        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=900&h=900&fit=crop&q=85" alt="シニアのフィットネス">
+      </div>
+      <div class="about-text" data-r="1">
+        <h3>「孫と元気に遊べる体」を、<br><span class="pk">ここで作りませんか。</span></h3>
+        <p>RECBOSS &amp; CAFEは、茨城県龍ケ崎市にある地域密着型のシニア向けフィットネス＆健康カフェです。膝や腰への負担を最小限に抑えた、椅子に座ったままできるプログラムを提供しています。</p>
+        <p>運動が苦手な方も、長年体を動かしていなかった方も大歓迎。同じ目標を持つ仲間と一緒に、無理なく楽しく続けられる環境を整えています。まずはお気軽に無料体験へお越しください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FEATURES ════ -->
+<section class="section features" id="features">
+  <div class="wrap">
+    <div class="head">
+      <span class="en">FEATURES</span>
+      <h2>選ばれる<span class="pk">4つの理由</span></h2>
+      <p class="lead">特別な体力も道具も必要ありません。ただ、気軽にお越しください。</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat" data-r>
+        <div class="feat-no">1</div>
+        <div><h4><span class="feat-em"><svg class="ico"><use href="#i-shield"/></svg></span> 座ったままで安心</h4><p>全プログラムが椅子に座ったまま。転倒のリスクがなく、膝や腰への負担を最小限に抑えています。</p></div>
+      </div>
+      <div class="feat" data-r="1">
+        <div class="feat-no">2</div>
+        <div><h4><span class="feat-em"><svg class="ico"><use href="#i-usercheck"/></svg></span> シニア・初心者専門</h4><p>体力や年齢に合わせた個別サポート。何十年ぶりに体を動かす方も、安心してスタートできます。</p></div>
+      </div>
+      <div class="feat" data-r="2">
+        <div class="feat-no">3</div>
+        <div><h4><span class="feat-em"><svg class="ico"><use href="#i-coffee"/></svg></span> 健康カフェ併設</h4><p>地元食材にこだわったメニューをご用意。運動後のリフレッシュタイムが、また来たくなる理由に。</p></div>
+      </div>
+      <div class="feat" data-r="3">
+        <div class="feat-no">4</div>
+        <div><h4><span class="feat-em"><svg class="ico"><use href="#i-users"/></svg></span> 地域のつながり</h4><p>共に汗をかき、カフェで笑う。ここで生まれる仲間とのつながりが、健康の一番の秘訣です。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ SCHEDULE ════ -->
+<section class="section schedule" id="schedule">
+  <div class="wrap">
+    <div class="head">
+      <span class="en">SCHEDULE</span>
+      <h2>クラス<span class="pk">スケジュール</span></h2>
+      <p class="lead">毎週 火曜・金曜に開催。予約不要、当日参加もOKです。</p>
+    </div>
+    <div data-r style="overflow-x:auto;">
+      <table class="sch-table">
+        <thead>
+          <tr><th>時間</th><th>火曜日</th><th>金曜日</th><th>対象</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="td-time">10:00<br>～11:00</td><td><span class="cls">椅子エクササイズ</span></td><td><span class="cls">椅子エクササイズ</span></td><td class="td-tg">全員</td></tr>
+          <tr><td class="td-time">11:00<br>～11:30</td><td>☕ カフェタイム</td><td>☕ カフェタイム</td><td class="td-tg">任意参加</td></tr>
+          <tr><td class="td-time">13:00<br>～14:00</td><td><span class="cls">ストレッチ</span></td><td><span class="cls off">お休み</span></td><td class="td-tg">初心者向け</td></tr>
+          <tr><td class="td-time">14:00<br>～15:00</td><td><span class="cls off">お休み</span></td><td><span class="cls">バランス強化</span></td><td class="td-tg">シニア向け</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="sch-note">※スケジュールは変更になる場合があります。最新情報はInstagramまたはお電話でご確認ください。</p>
+  </div>
+</section>
+
+<!-- ════ PLANS ════ -->
+<section class="section plans" id="plans">
+  <div class="wrap">
+    <div class="head">
+      <span class="en">PRICING</span>
+      <h2>まずは<span class="pk">無料</span>でお試し</h2>
+      <p class="lead">入会の前に、ぜひ一度体験してください。</p>
+    </div>
+    <div class="plan-grid">
+      <div class="plan" data-r>
+        <div class="plan-name">初回体験</div>
+        <div class="plan-cap">はじめての方限定</div>
+        <div class="plan-price">¥0</div>
+        <ul class="plan-feats"><li>1回レッスン参加</li><li>施設のご案内</li><li>手ぶらでOK</li></ul>
+        <a href="https://rad-sopapillas-4a7d91.netlify.app/" target="_blank" class="plan-btn">予約する</a>
+      </div>
+      <div class="plan star" data-r="1">
+        <div class="plan-ribbon">⭐ 人気No.1</div>
+        <div class="plan-name">プレミアム月額</div>
+        <div class="plan-cap">通い放題プラン</div>
+        <div class="plan-price">¥6,800<sub>/月</sub></div>
+        <ul class="plan-feats"><li>全クラス通い放題</li><li>カフェ10%割引</li><li>優先予約</li><li>会員イベント参加</li></ul>
+        <a href="https://rad-sopapillas-4a7d91.netlify.app/" target="_blank" class="plan-btn">申込む</a>
+      </div>
+      <div class="plan" data-r="2">
+        <div class="plan-name">週1プラン</div>
+        <div class="plan-cap">月4回まで参加</div>
+        <div class="plan-price">¥4,980<sub>/月</sub></div>
+        <ul class="plan-feats"><li>好きな曜日を選択</li><li>休会制度あり</li><li>入会金なし</li></ul>
+        <a href="https://rad-sopapillas-4a7d91.netlify.app/" target="_blank" class="plan-btn">申込む</a>
+      </div>
+      <div class="plan" data-r="3">
+        <div class="plan-name">都度払い</div>
+        <div class="plan-cap">気軽に参加</div>
+        <div class="plan-price">¥1,100<sub>/回</sub></div>
+        <ul class="plan-feats"><li>当日参加OK</li><li>縛りなし</li><li>体験後に移行可</li></ul>
+        <a href="https://rad-sopapillas-4a7d91.netlify.app/" target="_blank" class="plan-btn">参加する</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ CAFE ════ -->
+<section class="section cafe" id="cafe">
+  <div class="wrap">
+    <div class="head">
+      <span class="en">CAFÉ MENU</span>
+      <h2>運動の後は<span class="pk">健康カフェ</span>で</h2>
+      <div class="head-deco"><i>☕</i></div>
+    </div>
+    <div class="cafe-grid">
+      <div class="cafe-photo" data-r>
+        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900&h=920&fit=crop&q=85" alt="健康カフェ">
+      </div>
+      <div class="cafe-text" data-r="1">
+        <h3>体に<span class="pk">やさしいもの</span>で、<br>ゆっくり満たして。</h3>
+        <p>地元食材を使った、素材本来の味を大切にしたメニューです。会員の方はカフェ料金が10%OFFになります。</p>
+        <div class="menu-row"><span class="menu-name">🥣 季節野菜のスープ</span><span class="menu-dots"></span><span class="menu-price">¥1,000</span></div>
+        <div class="menu-row"><span class="menu-name">🍙 雑穀とサーモンのおにぎり</span><span class="menu-dots"></span><span class="menu-price">¥650</span></div>
+        <div class="menu-row"><span class="menu-name">🍓 自家製ヨーグルト&amp;フルーツ</span><span class="menu-dots"></span><span class="menu-price">¥480</span></div>
+        <div class="menu-row"><span class="menu-name">☕ プレミアムコーヒー</span><span class="menu-dots"></span><span class="menu-price">¥400</span></div>
+        <div class="menu-row"><span class="menu-name">🌿 ハーブティー各種</span><span class="menu-dots"></span><span class="menu-price">¥380</span></div>
+        <div class="menu-row"><span class="menu-name">🍠 干し芋</span><span class="menu-dots"></span><span class="menu-price">¥500</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ GALLERY ════ -->
+<section class="section gallery" id="gallery">
+  <div class="wrap">
+    <div class="head">
+      <span class="en">GALLERY</span>
+      <h2>施設の<span class="pk">雰囲気</span></h2>
+    </div>
+    <div class="mosaic" data-r>
+      <div class="g g1"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=900&fit=crop&q=80" alt="シニアグループ体操"></div>
+      <div class="g g2"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e?w=700&h=400&fit=crop&q=80" alt="エクササイズ"></div>
+      <div class="g g3"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=500&h=400&fit=crop&q=80" alt="フィットネス"></div>
+      <div class="g g4"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&h=400&fit=crop&q=80" alt="カフェ"></div>
+      <div class="g g5"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=400&fit=crop&q=80" alt="コミュニティ"></div>
+    </div>
+    <div class="ig-row" data-r="1">
+      <a href="https://www.instagram.com/ryugasaki_recboss" target="_blank" class="ig-link">
+        <span class="ig-dot">📷</span> Instagramで最新情報を見る @ryugasaki_recboss
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════ REVIEWS ════ -->
+<section class="section reviews" id="reviews">
+  <div class="wrap">
+    <div class="head">
+      <span class="en">VOICE</span>
+      <h2>通われている方の<span class="pk">声</span></h2>
+    </div>
+    <div class="rev-grid">
+      <div class="rev" data-r>
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">膝が悪くても安心して運動できて、お友達もできました！毎週通うのが楽しみになっています。</p>
+        <div class="rev-who"><span class="rev-ava">👩</span><div><b>70代女性</b><br><small style="color:#999">龍ケ崎市在住</small></div></div>
+      </div>
+      <div class="rev" data-r="1">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">運動の後にカフェで仲間とおしゃべりできるのが楽しみです。スタッフさんもとても親切ですよ。</p>
+        <div class="rev-who"><span class="rev-ava">👴</span><div><b>80代男性</b><br><small style="color:#999">龍ケ崎市在住</small></div></div>
+      </div>
+      <div class="rev" data-r="2">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">体力に自信がない私でも楽しく続けられています。もっと早く来ればよかったと思っています。</p>
+        <div class="rev-who"><span class="rev-ava">👩</span><div><b>60代女性</b><br><small style="color:#999">龍ケ崎市在住</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ ACCESS ════ -->
+<section class="section access" id="access">
+  <div class="wrap">
+    <div class="head">
+      <span class="en">ACCESS</span>
+      <h2>アクセス・<span class="pk">お問い合わせ</span></h2>
+    </div>
+    <div class="access-grid">
+      <div data-r>
+        <div class="acc-row"><div class="acc-ic"><svg class="ico"><use href="#i-pin"/></svg></div><div><div class="acc-k">所在地</div><div class="acc-v">茨城県龍ケ崎市馴馬町2867-2<br>マイホームビル2階</div></div></div>
+        <div class="acc-row"><div class="acc-ic"><svg class="ico"><use href="#i-calendar"/></svg></div><div><div class="acc-k">開催日時</div><div class="acc-v">毎週 火曜・金曜 10:00〜<br>（予約不要・当日参加OK）</div></div></div>
+        <div class="acc-row"><div class="acc-ic"><svg class="ico"><use href="#i-phone"/></svg></div><div><div class="acc-k">お電話</div><div class="acc-v" style="font-family:'Zen Maru Gothic'; font-weight:900; font-size:1.3rem; color:var(--pink);"><a href="tel:08052101914">080-5210-1914</a></div></div></div>
+        <div class="acc-row"><div class="acc-ic"><svg class="ico"><use href="#i-car"/></svg></div><div><div class="acc-k">駐車場</div><div class="acc-v">無料駐車場完備・バリアフリー対応</div></div></div>
+      </div>
+      <div class="map-box" data-r="1">
+        <iframe
+          title="RECBOSS & CAFE の地図"
+          src="https://maps.google.com/maps?q=%E8%8C%A8%E5%9F%8E%E7%9C%8C%E9%BE%8D%E3%82%B1%E5%B4%8E%E5%B8%82%E9%A6%B4%E9%A6%AC%E7%94%BA2867-2&z=16&output=embed"
+          width="100%" height="100%" style="border:0; border-radius:20px;"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FAQ ════ -->
+<section class="section faq" id="faq">
+  <div class="wrap">
+    <div class="head">
+      <span class="en">FAQ</span>
+      <h2>よくある<span class="pk">ご質問</span></h2>
+    </div>
+    <div class="faq-wrap" data-r>
+      <details>
+        <summary><span class="q-mark">Q</span>初心者でも大丈夫ですか？<span class="q-plus">＋</span></summary>
+        <p class="faq-a">はい、初めての方や長年運動をしていない方も、スタッフが丁寧にサポートしますのでご安心ください。まずは無料体験からお気軽にどうぞ。</p>
+      </details>
+      <details>
+        <summary><span class="q-mark">Q</span>膝が痛い・体が悪い場合でも参加できますか？<span class="q-plus">＋</span></summary>
+        <p class="faq-a">全て椅子に座ったままのメニューで、膝や腰にやさしいプログラムです。持病がある方は事前にお申し出いただければ、個別に対応いたします。</p>
+      </details>
+      <details>
+        <summary><span class="q-mark">Q</span>持ち物や服装は何が必要ですか？<span class="q-plus">＋</span></summary>
+        <p class="faq-a">動きやすい服装でお越しください。室内シューズは不要です。タオルと水分補給用のお飲み物があると便利ですが、手ぶらでも大丈夫です。</p>
+      </details>
+      <details>
+        <summary><span class="q-mark">Q</span>事前予約は必要ですか？<span class="q-plus">＋</span></summary>
+        <p class="faq-a">基本的に予約不要で当日参加いただけます。初回体験の方は事前にお電話またはInstagramのDMでご連絡いただけるとスムーズにご案内できます。</p>
+      </details>
+      <details>
+        <summary><span class="q-mark">Q</span>いつでも退会・休会できますか？<span class="q-plus">＋</span></summary>
+        <p class="faq-a">はい、いつでも退会・休会が可能です。月の途中でも対応いたします。詳しくはスタッフまでお気軽にご相談ください。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ════ CTA ════ -->
+<section class="cta">
+  <h2>まずは一度、<br><span class="marker">体感</span>してください。</h2>
+  <p>初回は完全無料。服装も気にせず、ふらっとお越しください。</p>
+  <a href="https://rad-sopapillas-4a7d91.netlify.app/" target="_blank" class="btn-white">無料体験を予約する　→</a>
+  <div class="cta-tel">
+    <small>お電話でのご予約・お問い合わせはこちら</small>
+    <b>📞 080-5210-1914</b>
+  </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer>
+  <div class="foot-row">
+    <div>
+      <div class="foot-logo">RECBOSS &amp; CAFE</div>
+      <p class="foot-copy">カラダも、ココロも、整う場所。<br>茨城県龍ケ崎市馴馬町2867-2 マイホームビル2階<br>シニア向けフィットネス＆健康カフェ</p>
+    </div>
+    <div class="foot-col">
+      <h4>メニュー</h4>
+      <ul class="foot-links">
+        <li><a href="#about">RECBOSSとは</a></li>
+        <li><a href="#schedule">スケジュール</a></li>
+        <li><a href="#plans">料金プラン</a></li>
+        <li><a href="#cafe">健康カフェ</a></li>
+        <li><a href="#gallery">ギャラリー</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>ご案内</h4>
+      <ul class="foot-links">
+        <li><a href="#access">アクセス</a></li>
+        <li><a href="#faq">よくある質問</a></li>
+        <li><a href="https://rad-sopapillas-4a7d91.netlify.app/" target="_blank">無料体験予約</a></li>
+        <li><a href="https://www.instagram.com/ryugasaki_recboss" target="_blank">Instagram (@ryugasaki_recboss)</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bar">&copy; 2025 RECBOSS &amp; CAFE. All rights reserved.</div>
+</footer>
+
+<!-- モバイル追従ボタン -->
+<div class="float-cta">
+  <a href="https://rad-sopapillas-4a7d91.netlify.app/" target="_blank">🎉 無料体験を予約する</a>
+</div>
+
+<script>
+  // 文字サイズ切替
+  document.querySelectorAll('.fsbtn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.body.classList.remove('fs-large', 'fs-xlarge');
+      if (btn.dataset.fs) document.body.classList.add(btn.dataset.fs);
+      document.querySelectorAll('.fsbtn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  // モバイルメニュー
+  const hbg = document.getElementById('hbg');
+  const mnav = document.getElementById('mnav');
+  hbg.addEventListener('click', () => mnav.classList.toggle('open'));
+  mnav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mnav.classList.remove('open')));
+
+  // スクロールリビール
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('[data-r]').forEach(el => io.observe(el));
+
+  // FAQ +/-
+  document.querySelectorAll('details').forEach(d => {
+    d.addEventListener('toggle', () => d.querySelector('.q-plus').textContent = d.open ? '－' : '＋');
+  });
+</script>
+</body>
+</html>
