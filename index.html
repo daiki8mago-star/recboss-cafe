@@ -394,6 +394,30 @@ header {
 ══════════════════════════════ */
 .reviews { background: var(--pink-pale); }
 .rev-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+/* 口コミ募集パネル（口コミ0件の正直版） */
+.voice-invite {
+  background: #fff; border: 2px dashed var(--pink-soft); border-radius: 24px;
+  padding: 48px 32px; text-align: center; max-width: 760px; margin: 0 auto;
+  box-shadow: 0 8px 24px rgba(74,157,110,.08);
+}
+.voice-g {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--pink-pale); color: var(--pink-dark);
+  font-weight: 700; font-size: .9rem; padding: 8px 18px; border-radius: 999px; margin-bottom: 20px;
+}
+.voice-g-ico { width: 18px; height: 18px; color: var(--orange); fill: var(--orange); }
+.voice-lead { color: var(--sub); font-weight: 500; margin-bottom: 28px; line-height: 1.9; }
+.voice-lead b { color: var(--ink); }
+.voice-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--pink); color: #fff;
+  font-family: "Zen Maru Gothic", sans-serif; font-weight: 900; font-size: 1.1rem;
+  padding: 16px 34px; border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(74,157,110,.4); transition: background .2s, transform .15s;
+}
+.voice-btn:hover { background: var(--pink-dark); transform: translateY(-2px); }
+.voice-btn .ico { width: 20px; height: 20px; fill: #fff; }
+.voice-note { font-size: .82rem; color: #aaa; margin-top: 16px; }
 .rev { background: #fff; border-radius: 20px; padding: 34px 30px; box-shadow: 0 8px 24px rgba(74,157,110,.08); }
 .rev-stars { color: var(--orange); font-size: 1.1rem; margin-bottom: 14px; }
 .rev-text { color: var(--ink); font-weight: 500; margin-bottom: 20px; font-size: .98rem; }
@@ -412,6 +436,13 @@ header {
 .acc-ic .ico { width: 26px; height: 26px; }
 .acc-k { font-family: "Zen Maru Gothic", sans-serif; font-weight: 900; color: var(--pink); font-size: .9rem; margin-bottom: 4px; }
 .acc-v { color: var(--ink); font-weight: 500; }
+.gbp-link {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 22px;
+  color: var(--pink-dark); font-weight: 700; font-size: .95rem;
+  border-bottom: 1px solid var(--pink-soft); padding-bottom: 3px; transition: opacity .2s;
+}
+.gbp-link:hover { opacity: .7; }
+.gbp-link .ico { width: 18px; height: 18px; color: var(--pink); }
 .map-box { background: var(--pink-pale); border-radius: 20px; height: 420px; display: grid; place-items: center; text-align: center; color: var(--sub); gap: 8px; }
 .map-box .em { font-size: 2.4rem; }
 
@@ -547,6 +578,7 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
   <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.5 3.5a1 1 0 0 1 1 .7l1 3a1 1 0 0 1-.3 1.1L7 9.5a12 12 0 0 0 7.5 7.5l1.2-1.2a1 1 0 0 1 1.1-.3l3 1a1 1 0 0 1 .7 1V20a2 2 0 0 1-2 2A16 16 0 0 1 4.5 5.5a2 2 0 0 1 2-2Z"/></symbol>
   <symbol id="i-car" viewBox="0 0 24 24"><path d="M5 13l1.6-4.3A2 2 0 0 1 8.5 7.4h7a2 2 0 0 1 1.9 1.3L19 13"/><rect x="3" y="13" width="18" height="6" rx="2"/><circle cx="7.5" cy="19" r="1.4"/><circle cx="16.5" cy="19" r="1.4"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.3 5.9.9-4.2 4.1 1 5.9-5.3-2.8-5.3 2.8 1-5.9-4.2-4.1 5.9-.9Z"/></symbol>
 </svg>
 
 <!-- 文字サイズ調整バー -->
@@ -807,24 +839,22 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
   <div class="wrap">
     <div class="head">
       <span class="en">VOICE</span>
-      <h2>通われている方の<span class="pk">声</span></h2>
+      <h2>あなたの<span class="pk">声</span>を聞かせてください</h2>
     </div>
-    <div class="rev-grid">
-      <div class="rev" data-r>
-        <div class="rev-stars">★★★★★</div>
-        <p class="rev-text">膝が悪くても安心して運動できて、お友達もできました！毎週通うのが楽しみになっています。</p>
-        <div class="rev-who"><span class="rev-ava">👩</span><div><b>70代女性</b><br><small style="color:#999">龍ケ崎市在住</small></div></div>
+    <div class="voice-invite" data-r>
+      <div class="voice-g">
+        <svg class="ico voice-g-ico"><use href="#i-star"/></svg>
+        <span>Google クチコミ</span>
       </div>
-      <div class="rev" data-r="1">
-        <div class="rev-stars">★★★★★</div>
-        <p class="rev-text">運動の後にカフェで仲間とおしゃべりできるのが楽しみです。スタッフさんもとても親切ですよ。</p>
-        <div class="rev-who"><span class="rev-ava">👴</span><div><b>80代男性</b><br><small style="color:#999">龍ケ崎市在住</small></div></div>
-      </div>
-      <div class="rev" data-r="2">
-        <div class="rev-stars">★★★★★</div>
-        <p class="rev-text">体力に自信がない私でも楽しく続けられています。もっと早く来ればよかったと思っています。</p>
-        <div class="rev-who"><span class="rev-ava">👩</span><div><b>60代女性</b><br><small style="color:#999">龍ケ崎市在住</small></div></div>
-      </div>
+      <p class="voice-lead">
+        RECBOSSは龍ケ崎で歩みはじめたばかりのお店です。<br>
+        通ってくださった感想を、ぜひGoogleのクチコミでお聞かせください。<br>
+        <b>あなたの一言が、同じ世代の誰かの一歩を後押しします。</b>
+      </p>
+      <a href="https://share.google/Zv0X3zYFqRsRhe248" target="_blank" rel="noopener" class="voice-btn">
+        <svg class="ico"><use href="#i-star"/></svg> Googleでクチコミを書く
+      </a>
+      <p class="voice-note">※ 体験・ご利用後のご感想をお待ちしています。</p>
     </div>
   </div>
 </section>
@@ -842,6 +872,9 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
         <div class="acc-row"><div class="acc-ic"><svg class="ico"><use href="#i-calendar"/></svg></div><div><div class="acc-k">開催日時</div><div class="acc-v">毎週 火曜・金曜 10:00〜<br>（予約不要・当日参加OK）</div></div></div>
         <div class="acc-row"><div class="acc-ic"><svg class="ico"><use href="#i-phone"/></svg></div><div><div class="acc-k">お電話</div><div class="acc-v" style="font-family:'Zen Maru Gothic'; font-weight:900; font-size:1.3rem; color:var(--pink);"><a href="tel:08052101914">080-5210-1914</a></div></div></div>
         <div class="acc-row"><div class="acc-ic"><svg class="ico"><use href="#i-car"/></svg></div><div><div class="acc-k">駐車場</div><div class="acc-v">無料駐車場完備・バリアフリー対応</div></div></div>
+        <a href="https://share.google/Zv0X3zYFqRsRhe248" target="_blank" rel="noopener" class="gbp-link">
+          <svg class="ico"><use href="#i-pin"/></svg> Googleマップでお店を見る・道案内
+        </a>
       </div>
       <div class="map-box" data-r="1">
         <iframe
@@ -921,6 +954,7 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
         <li><a href="#faq">よくある質問</a></li>
         <li><a href="https://rad-sopapillas-4a7d91.netlify.app/" target="_blank">無料体験予約</a></li>
         <li><a href="https://www.instagram.com/ryugasaki_recboss" target="_blank">Instagram (@ryugasaki_recboss)</a></li>
+        <li><a href="https://share.google/Zv0X3zYFqRsRhe248" target="_blank" rel="noopener">Googleでお店を見る</a></li>
       </ul>
     </div>
   </div>
