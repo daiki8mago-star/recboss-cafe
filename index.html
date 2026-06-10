@@ -194,7 +194,7 @@ header {
   border-radius: 24px; overflow: hidden;
   box-shadow: 0 20px 50px rgba(74,157,110,.2);
 }
-.hero-photo img { width: 100%; height: 460px; object-fit: cover; }
+.hero-photo img, .hero-photo .hero-media { width: 100%; height: 460px; object-fit: cover; display: block; background: var(--pink-soft); }
 .hero-photo-tag {
   position: absolute; left: 20px; bottom: 20px;
   background: #fff; border-radius: 16px; padding: 14px 22px;
@@ -524,7 +524,7 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
 
   .hero-inner { grid-template-columns: 1fr; padding: 36px 20px 48px; }
   .hero-photo { order: -1; }
-  .hero-photo img { height: 300px; }
+  .hero-photo img, .hero-photo .hero-media { height: 300px; }
 
   .pointbar-inner { grid-template-columns: 1fr; }
   .point { border-right: none; border-bottom: 1px solid rgba(255,255,255,.2); padding: 18px; }
@@ -651,7 +651,13 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
       </ul>
     </div>
     <div class="hero-photo">
-      <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1000&h=900&fit=crop&q=85" fetchpriority="high" decoding="async" alt="シニアの方々が笑顔で運動している様子">
+      <!-- Higgsfieldで作った hero.mp4 をこのフォルダに置くと自動で動画になります。
+           動画が無い間は poster の画像が表示されます（デグレなし）。 -->
+      <video class="hero-media" poster="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1000&h=900&fit=crop&q=85"
+             autoplay muted loop playsinline preload="none"
+             aria-label="Recboss GYMの雰囲気">
+        <source src="hero.mp4" type="video/mp4">
+      </video>
       <div class="hero-photo-tag">
         <small>はじめての方へ</small>
         <b>初回0円</b>
