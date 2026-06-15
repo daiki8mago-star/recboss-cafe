@@ -54,8 +54,15 @@ a { color: inherit; text-decoration: none; }
 /* 動きに敏感な方へ配慮：アニメーションを抑制 */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
-  [data-r] { opacity: 1 !important; transform: none !important; }
+  [data-r] { opacity: 1 !important; transform: none !important; filter: none !important; }
   html { scroll-behavior: auto; }
+  /* ピン留め演出は通常の縦並びテキストに（動かさない） */
+  .statement { height: auto !important; }
+  .statement-sticky { display: block !important; position: static !important; height: auto !important; min-height: 0 !important; padding: 70px 24px !important; }
+  .statement-line { display: block; margin: 0 auto 24px !important; }
+  .statement-line { opacity: 1 !important; transform: none !important; filter: none !important; }
+  .scroll-progress { display: none !important; }
+  .hero-copy, .hero-photo .hero-media, .hero-photo img { transform: none !important; opacity: 1 !important; }
 }
 
 /* 文字サイズ調整（bodyクラスで切替） */
@@ -494,11 +501,46 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
 /* ══════════════════════════════
    REVEAL
 ══════════════════════════════ */
-[data-r] { opacity: 0; transform: translateY(24px); transition: opacity .7s, transform .7s; }
-[data-r].in { opacity: 1; transform: none; }
-[data-r="1"] { transition-delay: .1s; }
-[data-r="2"] { transition-delay: .2s; }
-[data-r="3"] { transition-delay: .3s; }
+[data-r] {
+  opacity: 0; transform: translateY(38px) scale(.985); filter: blur(6px);
+  transition: opacity .9s cubic-bezier(.22,.61,.36,1),
+              transform .9s cubic-bezier(.22,.61,.36,1),
+              filter .9s ease;
+  will-change: opacity, transform;
+}
+[data-r].in { opacity: 1; transform: none; filter: none; }
+[data-r="1"] { transition-delay: .08s; }
+[data-r="2"] { transition-delay: .16s; }
+[data-r="3"] { transition-delay: .24s; }
+
+/* ══════════════════════════════
+   APPLE風スクロール演出
+══════════════════════════════ */
+/* スクロール進捗バー */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0;
+  background: linear-gradient(90deg, var(--pink), var(--pink-soft));
+  z-index: 1200; transition: width .08s linear; pointer-events: none;
+}
+/* ヒーローのパララックス対象 */
+.hero-copy, .hero-photo .hero-media, .hero-photo img { will-change: transform; }
+
+/* ピン留めステートメント（Apple風） */
+.statement { background: var(--pink); color: #fff; height: 300vh; }
+.statement-sticky {
+  position: sticky; top: 0; height: 100vh; min-height: 560px;
+  display: grid; place-items: center; text-align: center; padding: 0 24px; overflow: hidden;
+}
+.statement-line {
+  grid-area: 1 / 1; max-width: 900px;
+  font-family: "Zen Maru Gothic", sans-serif; font-weight: 900;
+  font-size: clamp(1.9rem, 5vw, 3.6rem); line-height: 1.5; letter-spacing: .02em;
+  opacity: 0; transform: translateY(44px) scale(.95); filter: blur(10px);
+  transition: opacity .65s cubic-bezier(.22,.61,.36,1),
+              transform .65s cubic-bezier(.22,.61,.36,1), filter .65s ease;
+}
+.statement-line.on { opacity: 1; transform: none; filter: none; }
+.statement-em { background: linear-gradient(transparent 58%, rgba(255,255,255,.3) 58%); padding: 0 .15em; }
 
 /* ══════════════════════════════
    FLOATING CTA（モバイル）
@@ -565,6 +607,9 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
   </style>
 </head>
 <body>
+
+<!-- スクロール進捗バー -->
+<div class="scroll-progress" id="scrollProgress"></div>
 
 <!-- SVGアイコン定義（画面には表示されない） -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -722,6 +767,15 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
         <div><h4><span class="feat-em"><svg class="ico"><use href="#i-users"/></svg></span> 地域のつながり</h4><p>共に汗をかき、カフェで笑う。ここで生まれる仲間とのつながりが、健康の一番の秘訣です。</p></div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ════ STATEMENT（Apple風ピン留め）════ -->
+<section class="statement" id="statement" aria-label="メッセージ">
+  <div class="statement-sticky">
+    <p class="statement-line">年齢は、<span class="statement-em">始めない理由</span>に<br>ならない。</p>
+    <p class="statement-line">膝が痛くても、<br><span class="statement-em">できることから</span>。</p>
+    <p class="statement-line">さあ、今日から<br><span class="statement-em">はじめましょう</span>。</p>
   </div>
 </section>
 
@@ -994,6 +1048,47 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
     es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('[data-r]').forEach(el => io.observe(el));
+
+  // === Apple風スクロール演出 ===
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const progressBar = document.getElementById('scrollProgress');
+  const heroEl = document.querySelector('.hero');
+  const heroCopy = document.querySelector('.hero-copy');
+  const heroMedia = document.querySelector('.hero-photo .hero-media') || document.querySelector('.hero-photo img');
+  const stmt = document.getElementById('statement');
+  const stmtLines = stmt ? Array.from(stmt.querySelectorAll('.statement-line')) : [];
+  let ticking = false;
+
+  function onScroll() {
+    const y = window.scrollY;
+    // 進捗バー
+    const docH = document.documentElement.scrollHeight - window.innerHeight;
+    if (progressBar) progressBar.style.width = (docH > 0 ? (y / docH) * 100 : 0) + '%';
+
+    if (!reduceMotion) {
+      // ヒーローのパララックス
+      if (heroEl) {
+        const h = heroEl.offsetHeight || 1;
+        const p = Math.min(y / h, 1);
+        if (heroCopy) { heroCopy.style.transform = 'translateY(' + (p * 60) + 'px)'; heroCopy.style.opacity = String(1 - p * 0.9); }
+        if (heroMedia) heroMedia.style.transform = 'scale(' + (1 + p * 0.12) + ')';
+      }
+      // ピン留めステートメント：スクロール進捗で文を切り替え
+      if (stmt && stmtLines.length) {
+        const rect = stmt.getBoundingClientRect();
+        const total = stmt.offsetHeight - window.innerHeight;
+        const sp = Math.min(Math.max(-rect.top / (total || 1), 0), 1);
+        let idx = Math.floor(sp * stmtLines.length);
+        if (idx > stmtLines.length - 1) idx = stmtLines.length - 1;
+        stmtLines.forEach((l, i) => l.classList.toggle('on', i === idx));
+      }
+    }
+    ticking = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!ticking) { requestAnimationFrame(onScroll); ticking = true; }
+  }, { passive: true });
+  onScroll();
 
   // FAQ +/-
   document.querySelectorAll('details').forEach(d => {
