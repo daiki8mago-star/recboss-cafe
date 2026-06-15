@@ -493,6 +493,37 @@ details[open] .q-plus { background: var(--pink); color: #fff; }
 .faq-a { padding: 0 26px 24px 64px; color: var(--sub); font-weight: 500; }
 
 /* ══════════════════════════════
+   FLOW（ご利用の流れ）
+══════════════════════════════ */
+.flow { background: #fff; }
+.flow-grid { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.flow-step {
+  position: relative; background: var(--pink-pale); border-radius: 20px;
+  padding: 42px 24px 30px; text-align: center;
+  transition: transform .2s, box-shadow .2s;
+}
+.flow-step:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(74,157,110,.15); }
+.flow-no {
+  position: absolute; top: -16px; left: 50%; transform: translateX(-50%);
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--pink); color: #fff;
+  font-family: "Zen Maru Gothic", sans-serif; font-weight: 900; font-size: 1.15rem;
+  display: grid; place-items: center;
+  box-shadow: 0 4px 10px rgba(74,157,110,.35);
+}
+.flow-ico {
+  display: inline-grid; place-items: center; width: 66px; height: 66px;
+  border-radius: 50%; background: #fff; color: var(--pink); margin-bottom: 16px;
+}
+.flow-ico .ico { width: 30px; height: 30px; }
+.flow-step h4 {
+  font-family: "Zen Maru Gothic", sans-serif; font-weight: 900;
+  font-size: 1.15rem; color: var(--ink); margin-bottom: 8px;
+}
+.flow-step p { font-size: .92rem; color: var(--sub); font-weight: 500; line-height: 1.8; }
+.flow-cta { text-align: center; margin-top: 40px; }
+
+/* ══════════════════════════════
    CTA
 ══════════════════════════════ */
 .cta { position: relative; overflow: hidden; background: linear-gradient(135deg, var(--pink) 0%, var(--pink-dark) 100%); padding: 80px 28px; text-align: center; color: #fff; }
@@ -610,6 +641,7 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
   .cafe-photo { order: -1; }
   .feat-grid { grid-template-columns: 1fr; }
   .plan-grid { grid-template-columns: 1fr 1fr; }
+  .flow-grid { grid-template-columns: 1fr 1fr; gap: 28px 22px; }
   .rev-grid { grid-template-columns: 1fr; }
 
   .mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3,180px); }
@@ -632,6 +664,7 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
 }
 @media (max-width: 520px) {
   .plan-grid { grid-template-columns: 1fr; }
+  .flow-grid { grid-template-columns: 1fr; gap: 30px; }
   .sch-table { font-size: .85rem; }
   .sch-table th, .sch-table td { padding: 12px 8px; }
   .cls { padding: 5px 10px; font-size: .82rem; }
@@ -686,6 +719,7 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
     <li><a href="#about">Recboss GYMとは</a></li>
     <li><a href="#schedule">スケジュール</a></li>
     <li><a href="#plans">料金</a></li>
+    <li><a href="#flow">はじめ方</a></li>
     <li><a href="#cafe">カフェ</a></li>
     <li><a href="#access">アクセス</a></li>
   </ul>
@@ -704,6 +738,7 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
   <a href="#about">Recboss GYMとは</a>
   <a href="#schedule">スケジュール</a>
   <a href="#plans">料金プラン</a>
+  <a href="#flow">はじめ方の流れ</a>
   <a href="#cafe">健康カフェ</a>
   <a href="#gallery">ギャラリー</a>
   <a href="#access">アクセス</a>
@@ -1021,6 +1056,47 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
         <summary><span class="q-mark">Q</span>いつでも退会・休会できますか？<span class="q-plus">＋</span></summary>
         <p class="faq-a">はい、いつでも退会・休会が可能です。月の途中でも対応いたします。詳しくはスタッフまでお気軽にご相談ください。</p>
       </details>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FLOW（ご利用の流れ）════ -->
+<section class="section flow" id="flow">
+  <div class="wrap">
+    <div class="head">
+      <span class="en">HOW IT WORKS</span>
+      <h2>はじめ方は、<span class="pk">かんたん4ステップ</span></h2>
+      <div class="head-deco"><svg class="ico" aria-hidden="true"><use href="#i-turtle"/></svg></div>
+      <p class="lead">予約から当日まで、むずかしいことは何もありません。まずは無料体験から。</p>
+    </div>
+    <ol class="flow-grid">
+      <li class="flow-step" data-r>
+        <div class="flow-no">1</div>
+        <span class="flow-ico"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg></span>
+        <h4>予約する</h4>
+        <p>Webまたはお電話で。予約不要・当日参加もOKなので、思い立った日に来ても大丈夫です。</p>
+      </li>
+      <li class="flow-step" data-r="1">
+        <div class="flow-no">2</div>
+        <span class="flow-ico"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
+        <h4>手ぶらで来店</h4>
+        <p>動きやすい服装でお越しください。着替えも道具も不要。スタッフが笑顔でお迎えします。</p>
+      </li>
+      <li class="flow-step" data-r="2">
+        <div class="flow-no">3</div>
+        <span class="flow-ico"><svg class="ico" aria-hidden="true"><use href="#i-usercheck"/></svg></span>
+        <h4>座ったまま運動</h4>
+        <p>椅子に座ったまま、体力に合わせて無理のない範囲で。初めてでも置いていかれません。</p>
+      </li>
+      <li class="flow-step" data-r="3">
+        <div class="flow-no">4</div>
+        <span class="flow-ico"><svg class="ico" aria-hidden="true"><use href="#i-coffee"/></svg></span>
+        <h4>カフェでひと休み</h4>
+        <p>運動のあとは健康カフェで一服。仲間とおしゃべりを楽しんで、また来たくなる時間に。</p>
+      </li>
+    </ol>
+    <div class="flow-cta">
+      <a href="https://rad-sopapillas-4a7d91.netlify.app/" target="_blank" class="btn-pink btn-pulse">無料体験を予約する　→</a>
     </div>
   </div>
 </section>
