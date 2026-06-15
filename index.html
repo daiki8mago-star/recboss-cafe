@@ -741,13 +741,10 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
       </ul>
     </div>
     <div class="hero-photo">
-      <!-- hero.mp4（実写）を再生。読み込み中・非対応時は poster 画像を表示。
-           差し替えるときは hero.mp4 を置き換えるだけ。 -->
-      <video class="hero-media" poster="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1000&h=900&fit=crop&q=85"
-             autoplay muted loop playsinline preload="none"
-             aria-label="Recboss GYMの雰囲気">
-        <source src="hero.mp4" type="video/mp4">
-      </video>
+      <!-- ヒーロー画像（フリー素材 / Unsplash）。動画は見切れていたため静止画に変更。 -->
+      <img class="hero-media" src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1000&h=820&fit=crop&q=85"
+           alt="椅子に座って楽しく運動するシニアの様子" loading="eager" decoding="async"
+           fetchpriority="high">
       <div class="hero-photo-tag">
         <small>はじめての方へ</small>
         <b>初回0円</b>
@@ -775,7 +772,7 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
     </div>
     <div class="about-grid">
       <div class="about-photo" data-r>
-        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=900&h=900&fit=crop&q=85" alt="シニアのフィットネス">
+        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=900&h=900&fit=crop&q=85" alt="シニアのフィットネス">
       </div>
       <div class="about-text" data-r="1">
         <h3>「孫と元気に遊べる体」を、<br><span class="pk">ここで作りませんか。</span></h3>
