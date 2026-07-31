@@ -40,8 +40,10 @@ a { color: inherit; text-decoration: none; }
 
 /* ── TOKENS ── */
 :root {
-  --pink:      #4a9d6e;   /* ライトグリーン */
-  --pink-dark: #3d8259;
+  /* ブランドグリーン。白文字とのコントラスト 4.63:1 でWCAG AA（4.5:1）を満たす。
+     旧 #4a9d6e は 3.31:1 で本文サイズの基準を下回っていたため変更（変数名pinkは旧デザインの名残） */
+  --pink:      #3d8259;   /* ブランドグリーン（AA準拠） */
+  --pink-dark: #2f6746;   /* ホバー用のさらに濃い緑 */
   --pink-soft: #dcefe2;
   --pink-pale: #f1f9f4;
   --orange:    #f5a623;
@@ -89,7 +91,7 @@ body.fs-xlarge { font-size: 22px; }
 .fsbar span { color: var(--sub); margin-right: 4px; }
 .fsbtn {
   border: 1px solid #c9d8cf; background: #fff; cursor: pointer;
-  border-radius: 8px; padding: 6px 16px; min-height: 40px; min-width: 48px;
+  border-radius: 8px; padding: 6px 16px; min-height: 44px; min-width: 48px; touch-action: manipulation;
   font-family: inherit; color: var(--sub); font-weight: 700;
   transition: background .2s, color .2s, border-color .2s;
 }
@@ -128,15 +130,18 @@ header {
   filter: invert(1);
 }
 .logo-text { display: inline-block; }
-.logo small { display: block; font-size: .6rem; color: var(--sub); letter-spacing: .15em; font-weight: 500; line-height: 1.4; margin-top: 2px; }
+.logo small { display: block; font-size: .75rem; color: var(--sub);  /* 旧.6rem(9.6px)は判読困難だったため12pxへ */ letter-spacing: .15em; font-weight: 500; line-height: 1.4; margin-top: 2px; }
 .nav { display: flex; align-items: center; gap: 26px; list-style: none; }
-.nav a { font-size: .95rem; font-weight: 700; color: var(--ink); transition: color .2s; }
+/* クリック領域を確保（文字高22pxだけでは押しにくいため上下に余白） */
+.nav a { font-size: .95rem; font-weight: 700; color: var(--ink); transition: color .2s; display: block; padding: 11px 0; }
 .nav a:hover { color: var(--pink); }
 .nav-tel {
   display: flex; flex-direction: column; align-items: flex-end;
   line-height: 1.3;
+  /* 電話は主要導線。タップ領域を44px以上に確保 */
+  min-height: 44px; justify-content: center; padding: 4px 2px; touch-action: manipulation;
 }
-.nav-tel small { font-size: .65rem; color: var(--sub); }
+.nav-tel small { font-size: .75rem; color: var(--sub); }  /* 旧.65rem(10.4px)は小さすぎたため12pxへ */
 .nav-tel b { font-family: "Zen Maru Gothic", sans-serif; font-size: 1.15rem; color: var(--pink); }
 .nav-cta {
   background: var(--pink); color: #fff !important;
@@ -146,7 +151,8 @@ header {
   transition: background .2s, transform .15s !important;
 }
 .nav-cta:hover { background: var(--pink-dark); transform: translateY(-2px); }
-.hbg { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+/* タップ領域を44×44px以上に（旧38×31pxは押し間違いが起きやすかった） */
+.hbg { display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; min-width: 44px; min-height: 44px; touch-action: manipulation; }
 .hbg span { display: block; width: 26px; height: 3px; background: var(--pink); border-radius: 3px; }
 
 /* ══════════════════════════════
@@ -161,7 +167,8 @@ header {
 }
 .recboss-logo-bg { background-image: var(--logo-img); background-size: contain; background-repeat: no-repeat; background-position: center; }
 .hero-badge {
-  display: inline-block; background: var(--orange); color: #fff;
+  /* オレンジ×白は 2.03:1 で判読困難だったため、濃色文字に変更（6.41:1） */
+  display: inline-block; background: var(--orange); color: #2b332e;
   font-weight: 900; font-size: .95rem;
   padding: 8px 20px; border-radius: 999px; margin-bottom: 24px;
 }
@@ -223,7 +230,7 @@ header {
   color: var(--pink); box-shadow: 0 6px 18px rgba(0,0,0,.12);
   line-height: 1.3;
 }
-.hero-photo-tag small { display: block; font-size: .7rem; color: var(--sub); font-weight: 500; }
+.hero-photo-tag small { display: block; font-size: .75rem; color: var(--sub); font-weight: 500; }
 .hero-photo-tag b { font-size: 1.6rem; }
 
 /* ══════════════════════════════
@@ -242,7 +249,7 @@ header {
 .point-em { display: block; margin-bottom: 10px; }
 .point-em .ico { width: 42px; height: 42px; }
 .point b { font-family: "Zen Maru Gothic", sans-serif; font-size: 1.15rem; display: block; }
-.point span { font-size: .9rem; opacity: .9; }
+.point span { font-size: .9rem; }  /* opacity:.9 はコントラストを下げるため削除 */
 
 /* ══════════════════════════════
    COMMON SECTION
@@ -251,7 +258,8 @@ header {
 .wrap { max-width: 1100px; margin: 0 auto; }
 .head { text-align: center; margin-bottom: 52px; }
 .head .en {
-  display: inline-block; color: var(--pink); font-weight: 900;
+  /* 薄緑背景の上では--pinkが4.32:1になるため濃い方を使う（6.22:1） */
+  display: inline-block; color: var(--pink-dark); font-weight: 900;
   font-size: .85rem; letter-spacing: .2em; margin-bottom: 10px;
 }
 .head h2 {
@@ -345,7 +353,7 @@ header {
   display: inline-block; background: var(--pink-soft); color: var(--pink-dark);
   font-weight: 700; font-size: .95rem; padding: 6px 16px; border-radius: 999px;
 }
-.cls.off { background: #f3f3f3; color: #bbb; font-weight: 500; }
+.cls.off { background: #f3f3f3; color: #666; font-weight: 500; }  /* #bbbは1.73:1で判読不可だったため */
 .td-tg { font-size: .85rem; color: var(--sub); }
 .sch-note { text-align: center; color: var(--sub); font-size: .9rem; margin-top: 20px; font-weight: 500; }
 
@@ -362,7 +370,7 @@ header {
 .plan.star { border-color: var(--pink); background: var(--pink-pale); }
 .plan-ribbon {
   position: absolute; top: -16px; left: 50%; transform: translateX(-50%);
-  background: var(--orange); color: #fff;
+  background: var(--orange); color: #2b332e;
   font-family: "Zen Maru Gothic", sans-serif; font-weight: 900; font-size: .9rem;
   padding: 6px 20px; border-radius: 999px; white-space: nowrap;
   box-shadow: 0 4px 12px rgba(245,166,35,.35);
@@ -469,7 +477,7 @@ header {
 }
 .voice-btn:hover { background: var(--pink-dark); transform: translateY(-2px); }
 .voice-btn .ico { width: 20px; height: 20px; fill: #fff; }
-.voice-note { font-size: .82rem; color: #aaa; margin-top: 16px; }
+.voice-note { font-size: .82rem; color: #666; margin-top: 16px; }  /* #aaaは2.32:1のため */
 .rev { background: #fff; border-radius: 20px; padding: 34px 30px; box-shadow: 0 8px 24px rgba(74,157,110,.08); }
 .rev-stars { color: var(--orange); font-size: 1.1rem; margin-bottom: 14px; }
 .rev-text { color: var(--ink); font-weight: 500; margin-bottom: 20px; font-size: .98rem; }
@@ -488,10 +496,13 @@ header {
 .acc-ic .ico { width: 26px; height: 26px; }
 .acc-k { font-family: "Zen Maru Gothic", sans-serif; font-weight: 900; color: var(--pink); font-size: .9rem; margin-bottom: 4px; }
 .acc-v { color: var(--ink); font-weight: 500; }
+/* 電話リンクのタップ領域を44px以上に */
+.acc-v a { display: inline-flex; align-items: center; min-height: 44px; touch-action: manipulation; }
 .gbp-link {
   display: inline-flex; align-items: center; gap: 8px; margin-top: 22px;
   color: var(--pink-dark); font-weight: 700; font-size: .95rem;
   border-bottom: 1px solid var(--pink-soft); padding-bottom: 3px; transition: opacity .2s;
+  min-height: 44px; touch-action: manipulation;
 }
 .gbp-link:hover { opacity: .7; }
 .gbp-link .ico { width: 18px; height: 18px; color: var(--pink); }
@@ -507,7 +518,7 @@ details { background: #fff; border-radius: 16px; margin-bottom: 14px; overflow: 
 summary { list-style: none; cursor: pointer; padding: 22px 26px; display: flex; align-items: center; gap: 16px; font-weight: 700; font-size: 1.02rem; }
 summary::-webkit-details-marker { display: none; }
 .q-mark { font-family: "Zen Maru Gothic", sans-serif; font-weight: 900; color: var(--pink); font-size: 1.3rem; flex-shrink: 0; }
-.q-plus { margin-left: auto; width: 30px; height: 30px; border-radius: 50%; background: var(--pink-soft); color: var(--pink); display: grid; place-items: center; flex-shrink: 0; font-weight: 900; transition: background .2s, color .2s; }
+.q-plus { margin-left: auto; width: 30px; height: 30px; border-radius: 50%; background: var(--pink-soft); color: var(--pink-dark); display: grid; place-items: center; flex-shrink: 0; font-weight: 900; transition: background .2s, color .2s; }
 details[open] .q-plus { background: var(--pink); color: #fff; }
 .faq-a { padding: 0 26px 24px 64px; color: var(--sub); font-weight: 500; }
 
@@ -575,8 +586,9 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
 .foot-logo-img { width: 200px; height: 133px; margin-bottom: 16px; opacity: .95; }
 .foot-copy { font-size: .88rem; line-height: 1.9; }
 .foot-col h4 { font-family: "Zen Maru Gothic", sans-serif; color: #fff; font-size: .95rem; margin-bottom: 14px; }
-.foot-links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
-.foot-links a { font-size: .9rem; color: rgba(255,255,255,.6); transition: color .2s; }
+.foot-links { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+/* タップ領域確保（旧21px）＋ 文字色を .6→.75 に上げてコントラスト改善 */
+.foot-links a { font-size: .9rem; color: rgba(255,255,255,.75); transition: color .2s; display: block; padding: 11px 0; touch-action: manipulation; }
 .foot-links a:hover { color: #fff; }
 .foot-bar { max-width: 1100px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.12); padding-top: 22px; text-align: center; font-size: .82rem; color: rgba(255,255,255,.45); }
 
@@ -633,7 +645,10 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
    RESPONSIVE
 ══════════════════════════════ */
 @media (max-width: 940px) {
-  .nav, .nav-tel { display: none; }
+  /* ヘッダーCTAもモバイルでは非表示に。従来は表示されたまま横幅が潰れ、
+     「体験を予約」が縦組みになりロゴ・ハンバーガーと重なっていた。
+     モバイルには画面下部の追従CTA（.float-cta）があるため導線は維持される */
+  .nav, .nav-tel, .nav-cta { display: none; }
   .hbg { display: flex; }
   header { padding: 0 max(20px, env(safe-area-inset-right)) 0 max(20px, env(safe-area-inset-left)); min-height: 68px; }
   .logo { font-size: 1.35rem; }
@@ -774,7 +789,7 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-copy">
-      <span class="hero-badge">🐢 オープン割・先着30名募集中</span>
+      <span class="hero-badge"><span aria-hidden="true">🐢</span> オープン割・先着30名募集中</span>
       <h1 class="hero-h1">
         <span class="marker">今からでも</span>、<br>
         <span class="pk">何歳からでも</span>、<br>
@@ -786,7 +801,7 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
       </p>
       <div class="hero-btns">
         <a href="https://rad-sopapillas-4a7d91.netlify.app/" target="_blank" class="btn-pink btn-pulse">体験を予約する　→</a>
-        <a href="tel:08052101914" class="btn-outline">📞 電話で問い合わせ</a>
+        <a href="tel:08052101914" class="btn-outline"><span aria-hidden="true">📞</span> 電話で問い合わせ</a>
       </div>
       <!-- ファーストビューの信頼・リスク低減（すべて料金からの事実） -->
       <ul class="hero-trust">
@@ -918,7 +933,7 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
     </div>
     <div class="plan-grid">
       <div class="plan star" data-r>
-        <div class="plan-ribbon">🐢 オープン割・先着30名</div>
+        <div class="plan-ribbon"><span aria-hidden="true">🐢</span> オープン割・先着30名</div>
         <div class="plan-name">週1コース</div>
         <div class="plan-cap">いちばん人気のはじめ方</div>
         <div class="plan-price">¥9,900<sub>/月（税込）</sub></div>
@@ -986,7 +1001,7 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
           <li>小学生：月・水・金 16:30〜18:00／中学生：火・木・土 18:00〜19:30</li>
           <li>通い放題 月額 8,800円（税込）／兄弟割 2人目以降 −2,000円</li>
         </ul>
-        <a href="tel:08052101914" class="plan-btn" style="display:inline-block;margin-top:10px;">📞 教室について問い合わせる</a>
+        <a href="tel:08052101914" class="plan-btn" style="display:inline-block;margin-top:10px;"><span aria-hidden="true">📞</span> 教室について問い合わせる</a>
       </div>
     </div>
   </div>
@@ -1008,7 +1023,7 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
     </div>
     <div class="ig-row" data-r="1">
       <a href="https://www.instagram.com/ryugasaki_recboss" target="_blank" class="ig-link">
-        <span class="ig-dot">📷</span> Instagramで最新情報を見る @ryugasaki_recboss
+        <span class="ig-dot" aria-hidden="true">📷</span> Instagramで最新情報を見る @ryugasaki_recboss
       </a>
     </div>
   </div>
@@ -1148,7 +1163,7 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
   <a href="https://rad-sopapillas-4a7d91.netlify.app/" target="_blank" class="btn-white">体験を予約する　→</a>
   <div class="cta-tel">
     <small>お電話でのご予約・お問い合わせはこちら</small>
-    <b>📞 080-5210-1914</b>
+    <b><span aria-hidden="true">📞</span> 080-5210-1914</b>
   </div>
 </section>
 
@@ -1185,7 +1200,7 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
 
 <!-- モバイル追従ボタン -->
 <div class="float-cta">
-  <a href="https://rad-sopapillas-4a7d91.netlify.app/" target="_blank">🎉 体験を予約する</a>
+  <a href="https://rad-sopapillas-4a7d91.netlify.app/" target="_blank"><span aria-hidden="true">🎉</span> 体験を予約する</a>
 </div>
 
 <script>
