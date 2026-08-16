@@ -370,6 +370,16 @@ header {
 .cls.off { background: #f3f3f3; color: #666; font-weight: 500; }  /* #bbbは1.73:1で判読不可だったため */
 .td-tg { font-size: .85rem; color: var(--sub); }
 .sch-note { text-align: center; color: var(--sub); font-size: .9rem; margin-top: 20px; font-weight: 500; }
+/* 1クラス70分の流れ */
+.class-flow { display: flex; align-items: stretch; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
+.cf-item { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 14px 22px; text-align: center; min-width: 120px; }
+.cf-item b { display: block; font-family: "Zen Maru Gothic", sans-serif; font-weight: 900; font-size: 1.5rem; color: var(--pink); line-height: 1.1; }
+.cf-item span { font-size: .88rem; color: var(--sub); font-weight: 700; }
+.cf-item.cf-main { background: var(--pink); border-color: var(--pink); }
+.cf-item.cf-main b { color: #fff; }
+.cf-item.cf-main span { color: rgba(255,255,255,.9); }
+.cf-op { display: flex; align-items: center; font-family: "Zen Maru Gothic", sans-serif; font-weight: 900; font-size: 1.3rem; color: var(--sub); }
+.cf-eq { display: flex; align-items: center; font-family: "Zen Maru Gothic", sans-serif; font-weight: 900; font-size: 1.15rem; color: var(--pink-dark); padding-left: 6px; }
 
 /* ══════════════════════════════
    PLANS
@@ -771,7 +781,7 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
     <li><a href="#schedule">スケジュール</a></li>
     <li><a href="#plans">料金</a></li>
     <li><a href="#flow">はじめ方</a></li>
-    <li><a href="#junior">ジュニア</a></li>
+    <li><a href="#junior">アスリート</a></li>
     <li><a href="#access">アクセス</a></li>
   </ul>
   <div style="display:flex; align-items:center; gap:18px;">
@@ -791,7 +801,7 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
   <a href="#schedule">スケジュール</a>
   <a href="#plans">料金プラン</a>
   <a href="#flow">はじめ方の流れ</a>
-  <a href="#junior">ジュニア教室</a>
+  <a href="#junior">アスリートコース</a>
   <a href="#gallery">ギャラリー</a>
   <a href="#access">アクセス</a>
   <a href="#faq">よくある質問</a>
@@ -949,7 +959,15 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
     <div class="head">
       <span class="en">SCHEDULE</span>
       <h2>クラス<span class="pk">スケジュール</span></h2>
-      <p class="lead">月曜〜土曜に開催（日曜休館）。大人クラスは毎日、ジュニアは曜日制です。</p>
+      <p class="lead">月曜〜土曜に開催（日曜休館）。1クラスは70分。<br>おうちの予定に合わせて通いやすい、日中の時間帯が中心です。</p>
+    </div>
+    <div class="class-flow" data-r>
+      <div class="cf-item"><b>10分</b><span>カウンセリング</span></div>
+      <div class="cf-op">＋</div>
+      <div class="cf-item cf-main"><b>50分</b><span>運動</span></div>
+      <div class="cf-op">＋</div>
+      <div class="cf-item"><b>10分</b><span>コミュニケーション</span></div>
+      <div class="cf-eq">＝ 1クラス70分</div>
     </div>
     <div data-r style="overflow-x:auto;">
       <table class="sch-table">
@@ -957,16 +975,18 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
           <tr><th>時間</th><th>クラス</th><th>対象・曜日</th></tr>
         </thead>
         <tbody>
-          <tr><td class="td-time">10:00<br>～11:30</td><td><span class="cls">健康寿命セミパーソナル</span></td><td class="td-tg">40〜60代・シニア（月〜土）</td></tr>
-          <tr><td class="td-time">11:45<br>～13:15</td><td><span class="cls">健康寿命セミパーソナル</span></td><td class="td-tg">40〜60代・シニア（月〜土）</td></tr>
-          <tr><td class="td-time">13:15<br>～16:30</td><td><span class="cls off">休館・準備時間</span></td><td class="td-tg">—</td></tr>
-          <tr><td class="td-time">16:30<br>～18:00</td><td><span class="cls">ジュニア（怪我をしない体づくり）</span></td><td class="td-tg">小学生：月・水・金</td></tr>
-          <tr><td class="td-time">18:00<br>～19:30</td><td><span class="cls">ジュニア（怪我をしない体づくり）</span></td><td class="td-tg">中学生：火・木・土</td></tr>
-          <tr><td class="td-time">19:30<br>～21:00</td><td><span class="cls">仕事帰りセミパーソナル</span></td><td class="td-tg">働く40〜50代（月〜土）</td></tr>
+          <tr><td class="td-time">9:30<br>～10:40</td><td><span class="cls">健康寿命セミパーソナル</span></td><td class="td-tg">40〜60代（月〜土）</td></tr>
+          <tr><td class="td-time">11:00<br>～12:10</td><td><span class="cls">健康寿命セミパーソナル</span></td><td class="td-tg">40〜60代（月〜土）</td></tr>
+          <tr><td class="td-time">12:10<br>～13:00</td><td><span class="cls off">昼休憩</span></td><td class="td-tg">—</td></tr>
+          <tr><td class="td-time">13:00<br>～14:10</td><td><span class="cls">健康寿命セミパーソナル</span></td><td class="td-tg">40〜60代（月〜土）</td></tr>
+          <tr><td class="td-time">14:30<br>～15:40</td><td><span class="cls">健康寿命セミパーソナル</span></td><td class="td-tg">40〜60代（月〜土）</td></tr>
+          <tr><td class="td-time">16:00<br>～17:10</td><td><span class="cls">健康寿命セミパーソナル</span></td><td class="td-tg">40〜60代（月〜土）</td></tr>
+          <tr><td class="td-time">17:30<br>～18:40</td><td><span class="cls">アスリートコース</span></td><td class="td-tg">小学生：月・水・金</td></tr>
+          <tr><td class="td-time">19:00<br>～20:10</td><td><span class="cls">アスリートコース</span></td><td class="td-tg">中学生：火・木・土</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="sch-note">※各枠は運動60分＋前後の準備・歓談を含みます。土曜の日中は、平日お仕事の方にもおすすめです。各クラス定員制のため、初回体験・ジュニアは予約制、その他のクラスも予約優先です。スケジュールは変更になる場合があります。最新情報はInstagramまたはお電話でご確認ください。</p>
+    <p class="sch-note">※1クラス70分＝カウンセリング10分＋運動50分＋コミュニケーション10分。各クラス少人数の定員制のため、初回体験は予約制、その他のクラスも予約優先です。スケジュールは変更になる場合があります。最新情報はInstagramまたはお電話でご確認ください。</p>
   </div>
 </section>
 
@@ -1031,9 +1051,9 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
 <section class="section junior" id="junior">
   <div class="wrap">
     <div class="head">
-      <span class="en">JUNIOR</span>
-      <h2>怪我をしない<span class="pk">体づくり教室</span></h2>
-      <p class="lead">小中学生・少年アスリートのための、スポーツ障害予防とフォームづくり。</p>
+      <span class="en">ATHLETE</span>
+      <h2>アスリート<span class="pk">コース</span></h2>
+      <p class="lead">小中学生アスリートのための、怪我をしない体づくり（スポーツ障害予防とフォームづくり）。</p>
     </div>
     <div class="about-grid">
       <div class="about-photo" data-r>
@@ -1045,7 +1065,7 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
         <ul class="plan-feats">
           <li>対象：小学3年生〜中学3年生</li>
           <li>定員：1クラス8名（予約制・安全を最優先）</li>
-          <li>小学生：月・水・金 16:30〜18:00／中学生：火・木・土 18:00〜19:30</li>
+          <li>小学生：月・水・金 17:30〜18:40／中学生：火・木・土 19:00〜20:10</li>
           <li>通い放題 月額 8,800円（税込）／兄弟割 2人目以降 −2,000円</li>
         </ul>
         <a href="tel:08052101914" class="plan-btn" style="display:inline-block;margin-top:10px;"><span aria-hidden="true">📞</span> 教室について問い合わせる</a>
@@ -1151,7 +1171,7 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
       </details>
       <details>
         <summary><span class="q-mark">Q</span>事前予約は必要ですか？<span class="q-plus">＋</span></summary>
-        <p class="faq-a">月額クラスとジュニアは定員制のため、ご予約制です。初回体験・都度払いは、空きがあれば当日のご参加もOKです。確実にご参加いただくには、お電話またはInstagramのDMでのご予約がおすすめです。</p>
+        <p class="faq-a">月額クラスとアスリートコースは定員制のため、ご予約制です。初回体験・都度払いは、空きがあれば当日のご参加もOKです。確実にご参加いただくには、お電話またはInstagramのDMでのご予約がおすすめです。</p>
       </details>
       <details>
         <summary><span class="q-mark">Q</span>いつでも退会・休会できますか？<span class="q-plus">＋</span></summary>
@@ -1227,7 +1247,7 @@ footer { background: #233b2c; color: rgba(255,255,255,.7); padding: 56px 28px 28
         <li><a href="#about">Recboss GYMとは</a></li>
         <li><a href="#schedule">スケジュール</a></li>
         <li><a href="#plans">料金プラン</a></li>
-        <li><a href="#junior">ジュニア教室</a></li>
+        <li><a href="#junior">アスリートコース</a></li>
         <li><a href="#gallery">ギャラリー</a></li>
       </ul>
     </div>
