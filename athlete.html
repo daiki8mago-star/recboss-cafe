@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>アスリートコース｜中高生のための怪我をしない体づくり｜Recboss personal GYM（龍ケ崎）</title>
-  <meta name="description" content="龍ケ崎市の Recboss personal GYM アスリートコース。中学生・高校生のための、怪我をしない体づくりとフォームづくり。救急救命士の代表が指導、1クラス8名の少人数制。月〜土 17:30／19:00、通い放題 月額16,000円。">
+  <meta name="description" content="龍ケ崎市の Recboss personal GYM アスリートコース。中学生・高校生のための、怪我をしない体づくりとフォームづくり。救急救命士の代表が指導、1クラス8名の少人数制。月〜土 17:30／19:00、通い放題 月額16,000円（オープン割・先着10名は月額9,900円）。">
   <meta property="og:title" content="アスリートコース｜Recboss personal GYM">
-  <meta property="og:description" content="中高生のための、怪我をしない体づくり。1クラス8名・通い放題 月額16,000円。">
+  <meta property="og:description" content="中高生のための、怪我をしない体づくり。1クラス8名・通い放題 月額16,000円（オープン割・先着10名は月額9,900円）。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://recbossgym.com/athlete.html">
   <meta property="og:image" content="https://recbossgym.com/img/og-athlete.jpg">
@@ -285,7 +285,9 @@ header {
 .price-main h3 { font-weight: 900; font-size: 1.5rem; margin: 4px 0 18px; }
 .price-yen { font-family: var(--wm); font-weight: 900; font-style: italic; font-size: clamp(3rem, 7vw, 4.4rem); line-height: 1; }
 .price-yen small { font-family: var(--jp); font-style: normal; font-size: 1rem; font-weight: 700; margin-left: 4px; }
-.price-tax { color: var(--sub); font-size: .85rem; margin-top: 8px; }
+.price-tax { color: var(--sub); font-size: .85rem; margin-top: 8px; position: relative; z-index: 1; }
+.price-tax b { color: var(--text); }
+.price-open { display: inline-block; background: var(--neon); color: #0d0f0e; font-weight: 900; font-size: .85rem; padding: 4px 12px; border-radius: 6px; margin-bottom: 10px; }
 .price-list { list-style: none; margin-top: 24px; border-top: 1px solid var(--line); padding-top: 16px; position: relative; z-index: 1; }
 .price-list li { display: flex; align-items: center; gap: 10px; padding: 6px 0; font-weight: 700; font-size: .95rem; }
 .price-list .ico { color: var(--neon); }
@@ -643,7 +645,7 @@ footer { padding: 54px 0 100px; border-top: 1px solid var(--line); color: var(--
       <div class="parent-item" data-r><div class="parent-ic"><svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg></div><div><h3>救急救命士の代表が指導</h3><p>体調の変化に気づき、万が一のときも落ち着いて対応できる体制で、安全を最優先に行います。</p></div></div>
       <div class="parent-item" data-r="1"><div class="parent-ic"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg></div><div><h3>成長期に無理な負荷はかけません</h3><p>重いバーベルなどの高負荷トレーニングではなく、自重・軽負荷で正しい動きを身につけます。</p></div></div>
       <div class="parent-item" data-r><div class="parent-ic"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg></div><div><h3>部活のあとでも通える時間</h3><p>月〜土の17:30と19:00の2枠。部活や塾の予定に合わせて、来られる日に予約できます。</p></div></div>
-      <div class="parent-item" data-r="1"><div class="parent-ic"><svg class="ico" aria-hidden="true"><use href="#i-yen"/></svg></div><div><h3>通い放題の定額制・兄弟割あり</h3><p>何回来ても月額16,000円。ご兄弟で入会すると、お一人につき月2,000円引きになります。</p></div></div>
+      <div class="parent-item" data-r="1"><div class="parent-ic"><svg class="ico" aria-hidden="true"><use href="#i-yen"/></svg></div><div><h3>通い放題の定額制・兄弟割あり</h3><p>何回来ても月額16,000円（オープン割の先着10名は月額9,900円）。ご兄弟で入会すると、通常料金からお一人につき月2,000円引きになります。</p></div></div>
     </div>
   </div>
 </section>
@@ -659,8 +661,9 @@ footer { padding: 54px 0 100px; border-top: 1px solid var(--line); color: var(--
       <div class="price-main" data-r>
         <p class="label">中学生〜高校生</p>
         <h3>アスリートコース 通い放題</h3>
-        <p class="price-yen">16,000<small>円／月</small></p>
-        <p class="price-tax">税込</p>
+        <p class="price-open">オープン割・先着10名</p>
+        <p class="price-yen">9,900<small>円／月</small></p>
+        <p class="price-tax">税込。<b>オープン割の料金は入会後もずっと据置</b>／通常 16,000円／月</p>
         <ul class="price-list">
           <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>月〜土、予約すれば何回でも参加OK</li>
           <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>1クラス8名の少人数制（予約制）</li>
@@ -668,8 +671,9 @@ footer { padding: 54px 0 100px; border-top: 1px solid var(--line); color: var(--
         </ul>
       </div>
       <div class="price-side">
-        <div class="price-box" data-r="1"><p class="k"><svg class="ico" aria-hidden="true"><use href="#i-gift"/></svg>兄弟割</p><p class="v">−2,000<small>円／月（お一人につき）</small></p><p>ご兄弟で入会すると、入会したお一人につき月2,000円引き。2人なら各14,000円です。</p></div>
+        <div class="price-box" data-r="1"><p class="k"><svg class="ico" aria-hidden="true"><use href="#i-gift"/></svg>兄弟割</p><p class="v">−2,000<small>円／月（お一人につき）</small></p><p>ご兄弟で入会すると、入会したお一人につき月2,000円引き。2人なら各14,000円です。通常料金の方が対象で、オープン割との併用はできません。</p></div>
         <div class="price-box" data-r="2"><p class="k"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>体験について</p><p class="v">1,000<small>円（70分）</small></p><p>はじめての方は体験からどうぞ。ご紹介の方は0円です。</p></div>
+        <div class="price-box" data-r="1"><p class="k"><svg class="ico" aria-hidden="true"><use href="#i-yen"/></svg>入会金</p><p class="v">5,500<small>円（税込）</small></p><p>ご入会時に一度だけ。ご紹介の方は0円です。</p></div>
       </div>
     </div>
     <div class="time-row">
