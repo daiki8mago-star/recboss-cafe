@@ -398,6 +398,29 @@ footer { padding: 54px 0 100px; border-top: 1px solid var(--line); color: var(--
 @media (max-width: 380px) {
   .logo b { display: none; }
 }
+
+/* 4Dストレッチ */
+.fourd { background: #000; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.head .fourd-date { display: table; background: var(--neon); color: #0d0f0e; font-weight: 900; font-size: .9rem; padding: 4px 14px; border-radius: 4px; margin: 10px 0 12px; }
+.fourd-machines { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.fourd-machine { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 26px 28px; }
+.fourd-machine small { font-family: var(--wm); font-weight: 800; font-style: italic; letter-spacing: .16em; color: var(--neon); }
+.fourd-machine h3 { font-weight: 900; font-size: 1.25rem; margin: 4px 0 8px; }
+.fourd-machine p { color: #cdd5d0; font-size: .95rem; }
+.fourd-base { margin-top: 22px; border-left: 4px solid var(--neon); padding: 6px 0 6px 20px; }
+.fourd-base h3 { font-weight: 900; font-size: 1.3rem; margin-bottom: 6px; }
+.fourd-base p { color: #cdd5d0; }
+.fourd-offer { margin-top: 32px; background: var(--neon); color: #0d0f0e; border-radius: 14px; padding: 30px 34px; display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: center; }
+.fourd-offer h3 { font-weight: 900; font-size: clamp(1.25rem, 2.6vw, 1.6rem); line-height: 1.5; margin-bottom: 6px; }
+.fourd-offer p { font-weight: 500; }
+.fourd-now { font-weight: 900 !important; font-size: 1.15rem; margin-top: 6px; }
+.fourd-offer .btn { background: #0d0f0e; color: #fff; }
+.fourd-note { margin-top: 16px; color: var(--sub); font-size: .8rem; }
+@media (max-width: 900px) {
+  .fourd-machines, .fourd-offer { grid-template-columns: 1fr; }
+  .fourd-offer { padding: 24px 22px; gap: 16px; }
+  .fourd-offer .btn { width: 100%; justify-content: center; }
+}
 </style>
 </head>
 <body>
@@ -455,6 +478,7 @@ footer { padding: 54px 0 100px; border-top: 1px solid var(--line); color: var(--
       <li>競技はなんでもOK</li>
       <li>月〜土 17:30／19:00</li>
       <li>通い放題</li>
+      <li><a href="#fourd">2027年2月 4Dストレッチ導入予定</a></li>
     </ul>
     <div class="hero-cta">
       <a href="https://calendar.app.google/3XQc4kLp7om91zVH8" target="_blank" rel="noopener" class="btn btn-neon">体験を予約する<svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
@@ -519,6 +543,43 @@ footer { padding: 54px 0 100px; border-top: 1px solid var(--line); color: var(--
         <ul><li>1クラス最大8名</li><li>毎回のコンディション確認</li><li>自宅でできるセルフケアも指導</li></ul>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ════ 4Dストレッチ ════ -->
+<section class="section fourd" id="fourd">
+  <div class="wrap">
+    <div class="head">
+      <span class="kicker">New Machine</span>
+      <p class="fourd-date">2027年2月 導入予定</p>
+      <h2><span class="n">4Dストレッチ</span>を導入します</h2>
+      <p>下半身用・上半身用の2種類のマシン「4D-Stretch」が入ります。筋肉を大きくするためのマシンではなく、高い負荷をかけずに股関節や肩甲骨まわりを大きく動かす、モビリティ（動きやすさ）のためのマシンです。成長期に無理な高負荷をかけないアスリートコースの考え方にも合っています。</p>
+    </div>
+    <div class="fourd-machines">
+      <div class="fourd-machine" data-r>
+        <small>LOWER BODY</small>
+        <h3>下半身：股関節・骨盤まわり</h3>
+        <p>股関節を外にひねる、後ろへ伸ばす、内にひねる。大きな動きをくり返し、走る・跳ぶ・踏ん張る動きの土台を整えます。</p>
+      </div>
+      <div class="fourd-machine" data-r="1">
+        <small>UPPER BODY</small>
+        <h3>上半身：肩甲骨・肩まわり</h3>
+        <p>肩甲骨を上げる、下げる、回す動きに、ひねりを加えてくり返します。投げる・打つ動きの準備に向いています。</p>
+      </div>
+    </div>
+    <div class="fourd-base" data-r>
+      <h3>本気で野球をやりたい選手へ</h3>
+      <p>投げる・打つは、腕だけの動きではありません。股関節のひねりを体幹から肩・腕へ伝える動きです。4Dストレッチで股関節と肩甲骨まわりを動かし、フォーム指導とあわせて、肩や肘に負担を集めにくい体の使い方を身につけていきます。もちろん、走る・跳ぶ・切り返す動きの多い他の競技の選手にもおすすめです。</p>
+    </div>
+    <div class="fourd-offer" data-r>
+      <div>
+        <h3>オープン割なら、導入後も月9,900円のまま</h3>
+        <p>先着10名のオープン割は、入会後もずっと月9,900円。4Dストレッチが入っても料金は据置です。龍ケ崎周辺ではまだ出会う機会の少ないマシンを、この料金で続けられるのはオープン割の方だけ。先着10名に達すると、通常料金の月16,000円になります。</p>
+        <p class="fourd-now">はじめるなら、今です。</p>
+      </div>
+      <a href="https://calendar.app.google/3XQc4kLp7om91zVH8" target="_blank" rel="noopener" class="btn">体験を予約する</a>
+    </div>
+    <p class="fourd-note">※導入時期は予定であり、変更になる場合があります。※金額は税込です。※感じ方や変化には個人差があります。痛みのある方、通院中の方は事前にご相談ください。</p>
   </div>
 </section>
 
@@ -669,6 +730,7 @@ footer { padding: 54px 0 100px; border-top: 1px solid var(--line); color: var(--
           <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>月〜土、予約すれば何回でも参加OK</li>
           <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>1クラス8名の少人数制（予約制）</li>
           <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>セルフケアの方法もお伝えします</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>2027年2月の4Dストレッチ導入後も料金はそのまま</li>
         </ul>
       </div>
       <div class="price-side">

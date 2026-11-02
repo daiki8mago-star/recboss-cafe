@@ -702,7 +702,39 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
   .ribbon { padding: .4em .8em; font-size: clamp(1.1rem, 5.2vw, 1.45rem); white-space: nowrap; }
   .line-box h2 .lg { width: 56px; height: 56px; font-size: .8rem; }
 }
-  </style>
+  
+/* ═══════════════════════════════
+   4Dストレッチ
+═══════════════════════════════ */
+.fourd { background: var(--black); color: #fff; padding: 88px 28px; }
+.fourd-inner { max-width: 1040px; margin: 0 auto; }
+.fourd-head { text-align: center; max-width: 760px; margin: 0 auto 40px; }
+.fourd-en { font-family: var(--wm); font-weight: 700; font-style: italic; letter-spacing: .2em; font-size: .8rem; color: #5be38f; }
+.fourd-date { display: table; margin: 14px auto; background: #5be38f; color: var(--black); font-weight: 900; padding: 5px 18px; border-radius: 999px; }
+.fourd-head h2 { font-family: var(--round); font-weight: 900; font-size: clamp(1.8rem, 3.8vw, 2.6rem); line-height: 1.4; margin-bottom: 16px; }
+.fourd-head p:last-child { color: rgba(255,255,255,.82); font-weight: 500; line-height: 2; text-align: left; }
+.fourd-machines { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.fourd-machine { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); border-radius: 18px; padding: 26px 28px; }
+.fourd-machine small { font-family: var(--wm); font-weight: 700; letter-spacing: .16em; color: #5be38f; }
+.fourd-machine h3 { font-family: var(--round); font-weight: 900; font-size: 1.3rem; margin: 4px 0 8px; }
+.fourd-machine p { color: rgba(255,255,255,.82); font-weight: 500; font-size: .95rem; line-height: 1.8; }
+.fourd-for { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 20px; }
+.fourd-for li { border-left: 3px solid #5be38f; padding: 2px 0 2px 14px; color: rgba(255,255,255,.82); font-size: .93rem; font-weight: 500; line-height: 1.7; }
+.fourd-for b { display: block; color: #fff; font-family: var(--round); font-weight: 900; font-size: 1.04rem; }
+.fourd-offer { margin-top: 36px; background: #fff; color: var(--ink); border-radius: 22px; padding: 34px 38px; display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items: center; }
+.fourd-offer h3 { font-family: var(--round); font-weight: 900; font-size: clamp(1.3rem, 2.6vw, 1.7rem); line-height: 1.5; margin-bottom: 8px; color: var(--green-dark); }
+.fourd-offer p { font-weight: 500; line-height: 1.9; }
+.fourd-now { font-family: var(--round); font-weight: 900; color: var(--accent); font-size: 1.15rem; margin-top: 6px; }
+.fourd-note { margin-top: 18px; color: rgba(255,255,255,.65); font-size: .8rem; line-height: 1.8; }
+.hero-new { margin: -4px 0 10px; font-weight: 700; font-size: .92rem; }
+.hero-new a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 900px) {
+  .fourd { padding: 64px 16px; }
+  .fourd-machines, .fourd-for, .fourd-offer { grid-template-columns: 1fr; }
+  .fourd-offer { padding: 26px 22px; gap: 18px; }
+  .fourd-offer .btn { width: 100%; }
+}
+</style>
 </head>
 <body>
 
@@ -791,6 +823,7 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
     <svg class="leaf l1" aria-hidden="true"><use href="#i-leaf"/></svg>
     <div class="hero-copy">
       <p class="hero-open"><b>NOW OPEN</b>2026.10.26 オープン</p>
+      <p class="hero-new"><a href="#fourd">2027年2月 4Dストレッチ導入予定</a></p>
       <span class="hero-for">龍ケ崎・馴馬｜50〜60代のセミパーソナルジム</span>
       <h1 class="hero-h1" id="hero-title">健康寿命を<br>のばす習慣を</h1>
       <p class="hero-sub">ダイエットも、体力づくりも。<br>目的に合わせたオーダーメイド。</p>
@@ -874,6 +907,44 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
       </div>
       <p class="goal-note">同じクラスの中でも、お一人ずつ種目や負荷を調整します。</p>
     </div>
+  </div>
+</section>
+
+<!-- ════ 4Dストレッチ ════ -->
+<section class="fourd" id="fourd">
+  <div class="fourd-inner">
+    <div class="fourd-head" data-r>
+      <span class="fourd-en">NEW MACHINE</span>
+      <p class="fourd-date">2027年2月 導入予定</p>
+      <h2>4Dストレッチを導入します</h2>
+      <p>下半身用・上半身用の2種類のマシン「4D-Stretch」がRecbossに入ります。力を抜いてマシンの動きに合わせ、股関節や肩甲骨まわりをひねりながら大きく動かす、モビリティ（動きやすさ）のためのマシンです。高い負荷をかけるものではないので、運動が久しぶりの方も、体調を確認しながら取り入れられます。</p>
+    </div>
+    <div class="fourd-machines">
+      <div class="fourd-machine" data-r>
+        <small>LOWER BODY</small>
+        <h3>下半身：股関節・骨盤まわり</h3>
+        <p>股関節を外にひねる、後ろへ伸ばす、内にひねる。この動きを大きくくり返し、歩く・踏ん張る動きの土台を整えます。</p>
+      </div>
+      <div class="fourd-machine" data-r="1">
+        <small>UPPER BODY</small>
+        <h3>上半身：肩甲骨・肩まわり</h3>
+        <p>肩甲骨を上げる、下げる、回す動きに、ひねりを加えてくり返します。デスクワークなどで固まりがちな肩まわりのメンテナンスに。</p>
+      </div>
+    </div>
+    <ul class="fourd-for" data-r>
+      <li><b>ゴルフを長く楽しみたい方に</b>股関節と肩甲骨まわりを動かし、スイングでひねりやすい体を目指します</li>
+      <li><b>肩や腰まわりが固まりがちな方に</b>力を抜いて、マシンの動きに合わせて動かします</li>
+      <li><b>これからも動ける体でいたい方に</b>いつものトレーニングに、動きやすさの習慣を加えます</li>
+    </ul>
+    <div class="fourd-offer" data-r>
+      <div>
+        <h3>オープン割なら、導入後も月9,900円のまま</h3>
+        <p>週1コースのオープン割（先着30名）は、入会後もずっと月9,900円。4Dストレッチが入っても料金は据置です。龍ケ崎周辺ではまだ出会う機会の少ないマシンを、この料金で続けられるのはオープン割の方だけ。先着30名に達すると、通常料金の月22,000円になります。</p>
+        <p class="fourd-now">はじめるなら、今です。</p>
+      </div>
+      <a href="https://calendar.app.google/3XQc4kLp7om91zVH8" target="_blank" rel="noopener" class="btn btn-main">まずは体験を予約する</a>
+    </div>
+    <p class="fourd-note">※導入時期は予定であり、変更になる場合があります。※金額は税込です。※感じ方や変化には個人差があります。痛みのある方、通院中の方は事前にご相談ください。</p>
   </div>
 </section>
 
@@ -1051,7 +1122,7 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
     </div>
     <div class="prow star">
       <div class="pname"><svg class="ico" aria-hidden="true"><use href="#i-users"/></svg><div><small>セミパーソナル</small><b>週1コース</b></div></div>
-      <div class="pval"><span class="open-tag">オープン割・先着30名</span><br><span class="yen">9,900<sub>円/月</sub></span><span class="pnote">通常 22,000円/月。<b>オープン割の料金は入会後もずっと据置</b>（1回あたり約2,475円）</span></div>
+      <div class="pval"><span class="open-tag">オープン割・先着30名</span><br><span class="yen">9,900<sub>円/月</sub></span><span class="pnote">通常 22,000円/月。<b>オープン割の料金は入会後もずっと据置</b>（1回あたり約2,475円）。2027年2月の4Dストレッチ導入後も料金はそのままです</span></div>
     </div>
     <div class="prow">
       <div class="pname"><svg class="ico" aria-hidden="true"><use href="#i-users"/></svg><div><small>セミパーソナル</small><b>週2コース</b></div></div>
