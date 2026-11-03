@@ -399,27 +399,115 @@ footer { padding: 54px 0 100px; border-top: 1px solid var(--line); color: var(--
   .logo b { display: none; }
 }
 
-/* 4Dストレッチ */
-.fourd { background: #000; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.head .fourd-date { display: table; background: var(--neon); color: #0d0f0e; font-weight: 900; font-size: .9rem; padding: 4px 14px; border-radius: 4px; margin: 10px 0 12px; }
-.fourd-machines { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
-.fourd-machine { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 26px 28px; }
-.fourd-machine small { font-family: var(--wm); font-weight: 800; font-style: italic; letter-spacing: .16em; color: var(--neon); }
-.fourd-machine h3 { font-weight: 900; font-size: 1.25rem; margin: 4px 0 8px; }
-.fourd-machine p { color: #cdd5d0; font-size: .95rem; }
-.fourd-base { margin-top: 22px; border-left: 4px solid var(--neon); padding: 6px 0 6px 20px; }
-.fourd-base h3 { font-weight: 900; font-size: 1.3rem; margin-bottom: 6px; }
-.fourd-base p { color: #cdd5d0; }
-.fourd-offer { margin-top: 32px; background: var(--neon); color: #0d0f0e; border-radius: 14px; padding: 30px 34px; display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: center; }
-.fourd-offer h3 { font-weight: 900; font-size: clamp(1.25rem, 2.6vw, 1.6rem); line-height: 1.5; margin-bottom: 6px; }
-.fourd-offer p { font-weight: 500; }
-.fourd-now { font-weight: 900 !important; font-size: 1.15rem; margin-top: 6px; }
-.fourd-offer .btn { background: #0d0f0e; color: #fff; }
-.fourd-note { margin-top: 16px; color: var(--sub); font-size: .8rem; }
+/* ═══════════════════════════════
+   4D-Stretch（画像・ロゴ・映像は4D-Stretch株式会社の許諾を得て使用）
+═══════════════════════════════ */
+.fd {
+  --fd-teal: #009ca0; --fd-teal-l: #42c6c2; --fd-teal-d: #016868;
+  --fd-char: #232828; --fd-char2: #3e4242;
+  --fd-bg: #f3f7f7; --fd-card: #fff; --fd-tx: #232828; --fd-sub: #4f5757; --fd-line: #dfe7e7;
+  --fd-font: "Montserrat", "Noto Sans JP", sans-serif;
+  background: var(--fd-bg); color: var(--fd-tx); overflow: hidden;
+}
+.fd--dark { --fd-bg: #0d0f0e; --fd-card: #161b1a; --fd-tx: #f3f6f4; --fd-sub: #b3bdbb; --fd-line: rgba(255,255,255,.12); }
+.fd-wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+.fd-en { display: inline-flex; align-items: center; gap: 10px; font-family: var(--fd-font); font-weight: 800; font-style: italic; letter-spacing: .14em; font-size: .82rem; color: var(--fd-teal); text-transform: uppercase; }
+.fd--dark .fd-en, .fd-hero .fd-en { color: var(--fd-teal-l); }
+.fd-en::before { content: ""; width: 30px; height: 3px; background: currentColor; transform: skewX(-24deg); }
+
+/* ── ヒーロー ── */
+.fd-hero { position: relative; background: radial-gradient(120% 90% at 80% 20%, #2f3636 0%, var(--fd-char) 55%, #161a1a 100%); color: #fff; padding: 96px 0 0; isolation: isolate; }
+.fd-hero::before { /* 4Dマークのスピードライン */
+  content: ""; position: absolute; inset: 0; z-index: -1; opacity: .55;
+  background: repeating-linear-gradient(-28deg, transparent 0 46px, rgba(66,198,194,.10) 46px 48px, transparent 48px 58px, rgba(66,198,194,.18) 58px 60px, transparent 60px 140px);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 45%, #000 100%); mask-image: linear-gradient(90deg, transparent 0%, #000 45%, #000 100%);
+}
+.fd-mark { position: absolute; z-index: -1; right: -6%; top: -8%; width: min(62vw, 720px); opacity: .1; pointer-events: none; }
+.fd-hero-in { display: grid; grid-template-columns: 1fr 1.15fr; gap: 24px; align-items: end; }
+.fd-hero-txt { padding-bottom: 88px; }
+.fd-badge { display: inline-flex; align-items: center; gap: 12px; border: 1px solid rgba(66,198,194,.6); border-radius: 999px; padding: 5px 16px 5px 5px; font-weight: 700; font-size: .9rem; margin-bottom: 26px; }
+.fd-badge span { background: var(--fd-teal); color: #fff; font-family: var(--fd-font); font-weight: 800; font-style: italic; letter-spacing: .08em; font-size: .74rem; padding: 4px 12px; border-radius: 999px; }
+.fd-logo { display: block; width: min(330px, 78%); height: auto; margin-bottom: 26px; }
+.fd-hero h2 { font-family: "Noto Sans JP", sans-serif; font-weight: 900; font-size: clamp(1.9rem, 4.2vw, 3.1rem); line-height: 1.35; letter-spacing: .02em; margin-bottom: 18px; }
+.fd-hero h2 em { font-style: normal; color: var(--fd-teal-l); }
+.fd-hero h2 span { display: inline-block; }
+.fd-lead { color: rgba(255,255,255,.84); font-weight: 500; line-height: 2; max-width: 30em; }
+.fd-jump { display: inline-flex; align-items: center; gap: 10px; margin-top: 26px; color: #fff; font-weight: 700; text-decoration: none; border-bottom: 2px solid var(--fd-teal-l); padding-bottom: 4px; }
+.fd-jump:hover { color: var(--fd-teal-l); }
+.fd-hero-img { position: relative; height: 470px; }
+.fd-hero-img img { position: absolute; bottom: 34px; height: auto; filter: drop-shadow(0 26px 30px rgba(0,0,0,.55)); }
+.fd-h-hip { left: -6%; width: 80%; z-index: 1; }
+.fd-h-sh { right: 2%; width: 27%; bottom: 46px !important; z-index: 2; }
+.fd-floor { position: absolute; left: -20%; right: -30%; bottom: 0; height: 64px; background: linear-gradient(90deg, var(--fd-teal-d), var(--fd-teal) 50%, var(--fd-teal-l)); transform: skewX(-28deg); transform-origin: bottom; }
+.fd-floor::after { content: "4D-STRETCH × RECBOSS"; position: absolute; right: 34%; top: 50%; transform: translateY(-50%) skewX(28deg); font-family: var(--fd-font); font-weight: 800; font-style: italic; letter-spacing: .24em; font-size: .78rem; color: rgba(255,255,255,.9); white-space: nowrap; }
+
+/* ── 本文 ── */
+.fd-body { padding: 96px 0 88px; }
+.fd-h { max-width: 760px; margin-bottom: 36px; }
+.fd-h h3 { font-family: "Noto Sans JP", sans-serif; font-weight: 900; font-size: clamp(1.5rem, 3vw, 2.1rem); line-height: 1.5; margin: 10px 0 12px; }
+.fd-h p { color: var(--fd-sub); font-weight: 500; line-height: 2; }
+.fd-points { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 96px; }
+.fd-points li { background: var(--fd-card); border: 1px solid var(--fd-line); border-radius: 6px; padding: 28px 26px 26px; position: relative; overflow: hidden; }
+.fd-points li::after { content: ""; position: absolute; left: 0; top: 0; width: 64px; height: 4px; background: var(--fd-teal); }
+.fd-points b { font-family: var(--fd-font); font-weight: 800; font-style: italic; font-size: 2.2rem; line-height: 1; color: var(--fd-teal); }
+.fd--dark .fd-points b { color: var(--fd-teal-l); }
+.fd-points h4 { font-weight: 900; font-size: 1.12rem; margin: 12px 0 8px; }
+.fd-points p { color: var(--fd-sub); font-size: .94rem; line-height: 1.85; font-weight: 500; }
+
+.fd-products { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.fd-card { background: var(--fd-card); border: 1px solid var(--fd-line); border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; }
+.fd-card-img { position: relative; height: 300px; background: linear-gradient(160deg, #fff 0%, #e9f1f1 100%); display: flex; align-items: center; justify-content: center; padding: 26px; }
+.fd--dark .fd-card-img { background: linear-gradient(160deg, #26302f 0%, #141a19 100%); }
+.fd-card-img img { max-width: 100%; max-height: 100%; width: auto; height: auto; filter: drop-shadow(0 14px 16px rgba(0,0,0,.22)); }
+.fd-card-img span { position: absolute; left: 0; top: 18px; background: var(--fd-teal); color: #fff; font-family: var(--fd-font); font-weight: 800; font-style: italic; letter-spacing: .12em; font-size: .72rem; padding: 5px 14px 5px 18px; }
+.fd-card-body { padding: 26px 28px 28px; display: flex; flex-direction: column; flex: 1; }
+.fd-model { font-family: var(--fd-font); font-weight: 800; font-style: italic; font-size: clamp(1.4rem, 2.6vw, 1.8rem); line-height: 1.1; color: var(--fd-teal); letter-spacing: .01em; }
+.fd--dark .fd-model { color: var(--fd-teal-l); }
+.fd-card h4 { font-weight: 900; font-size: 1.15rem; margin: 6px 0 2px; }
+.fd-card h4 small { display: block; font-size: .85rem; font-weight: 700; color: var(--fd-sub); margin-top: 2px; }
+.fd-card-body > p:not(.fd-model) { color: var(--fd-sub); font-weight: 500; font-size: .95rem; line-height: 1.9; margin: 12px 0 16px; }
+.fd-spec { border-top: 1px solid var(--fd-line); margin-bottom: 20px; }
+.fd-spec div { display: grid; grid-template-columns: 6.5em 1fr; gap: 12px; border-bottom: 1px solid var(--fd-line); padding: 10px 0; font-size: .9rem; }
+.fd-spec dt { font-weight: 700; color: var(--fd-teal); }
+.fd--dark .fd-spec dt { color: var(--fd-teal-l); }
+.fd-spec dd { font-weight: 500; }
+.fd-video { margin-top: auto; }
+.fd-video video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 4px; background: #111; }
+.fd-video figcaption { display: flex; align-items: center; gap: 8px; margin-top: 8px; font-size: .8rem; font-weight: 700; color: var(--fd-sub); }
+.fd-video figcaption::before { content: "MOVIE"; font-family: var(--fd-font); font-weight: 800; font-style: italic; letter-spacing: .1em; font-size: .7rem; color: #fff; background: var(--fd-char2); padding: 2px 8px; border-radius: 2px; }
+
+.fd-for { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 26px; }
+.fd-for li { border-left: 3px solid var(--fd-teal); padding: 2px 0 2px 14px; color: var(--fd-sub); font-size: .93rem; font-weight: 500; line-height: 1.75; }
+.fd-for b { display: block; color: var(--fd-tx); font-weight: 900; font-size: 1.04rem; }
+.fd-base { margin-top: 26px; border-left: 4px solid var(--fd-teal-l); padding: 6px 0 6px 20px; }
+.fd-base h3 { font-weight: 900; font-size: 1.3rem; margin-bottom: 6px; }
+.fd-base p { color: var(--fd-sub); line-height: 1.9; }
+
+.fd-offer { margin-top: 44px; background: var(--fd-char); color: #fff; border-radius: 6px; padding: 36px 40px; display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items: center; position: relative; overflow: hidden; isolation: isolate; }
+.fd-offer::before { content: ""; position: absolute; z-index: -1; right: -40px; top: 0; bottom: 0; width: 46%; background: linear-gradient(90deg, transparent, rgba(0,156,160,.35)); transform: skewX(-28deg); }
+.fd-offer h3 { font-weight: 900; font-size: clamp(1.3rem, 2.6vw, 1.7rem); line-height: 1.5; margin-bottom: 8px; }
+.fd-offer h3 em { font-style: normal; color: var(--fd-teal-l); }
+.fd-offer p { font-weight: 500; line-height: 1.9; color: rgba(255,255,255,.86); }
+.fd-now { font-weight: 900 !important; color: #fff !important; font-size: 1.15rem; margin-top: 6px; }
+.fd-note { margin-top: 18px; color: var(--fd-sub); font-size: .8rem; line-height: 1.8; }
+.fd-note a { color: inherit; text-underline-offset: 3px; }
+
 @media (max-width: 900px) {
-  .fourd-machines, .fourd-offer { grid-template-columns: 1fr; }
-  .fourd-offer { padding: 24px 22px; gap: 16px; }
-  .fourd-offer .btn { width: 100%; justify-content: center; }
+  .fd-wrap { padding: 0 16px; }
+  .fd-hero { padding-top: 64px; }
+  .fd-hero-in { grid-template-columns: 1fr; gap: 0; }
+  .fd-hero-txt { padding-bottom: 8px; }
+  .fd-hero-img { height: min(76vw, 380px); margin: 0 -16px; }
+  .fd-mark { width: 92vw; right: -24%; top: 2%; }
+  .fd-body { padding: 64px 0; }
+  .fd-points, .fd-products, .fd-for, .fd-offer { grid-template-columns: 1fr; }
+  .fd-points { margin-bottom: 64px; }
+  .fd-card-img { height: 240px; }
+  .fd-card-body { padding: 22px 20px 24px; }
+  .fd-offer { padding: 28px 22px; gap: 18px; }
+  .fd-offer .btn { width: 100%; justify-content: center; }
+  .fd-floor { height: 44px; }
+  .fd-floor::after { right: 26%; font-size: .66rem; }
 }
 </style>
 </head>
@@ -546,40 +634,92 @@ footer { padding: 54px 0 100px; border-top: 1px solid var(--line); color: var(--
   </div>
 </section>
 
-<!-- ════ 4Dストレッチ ════ -->
-<section class="section fourd" id="fourd">
-  <div class="wrap">
-    <div class="head">
-      <span class="kicker">New Machine</span>
-      <p class="fourd-date">2027年2月 導入予定</p>
-      <h2><span class="n">4Dストレッチ</span>を導入します</h2>
-      <p>下半身用・上半身用の2種類のマシン「4D-Stretch」が入ります。筋肉を大きくするためのマシンではなく、高い負荷をかけずに股関節や肩甲骨まわりを大きく動かす、モビリティ（動きやすさ）のためのマシンです。成長期に無理な高負荷をかけないアスリートコースの考え方にも合っています。</p>
-    </div>
-    <div class="fourd-machines">
-      <div class="fourd-machine" data-r>
-        <small>LOWER BODY</small>
-        <h3>下半身：股関節・骨盤まわり</h3>
-        <p>股関節を外にひねる、後ろへ伸ばす、内にひねる。大きな動きをくり返し、走る・跳ぶ・踏ん張る動きの土台を整えます。</p>
+<!-- ════ 4D-Stretch ════ -->
+<section class="fd fd--dark" id="fourd" aria-labelledby="fd-title">
+  <div class="fd-hero">
+    <img class="fd-mark" src="img/4d-mark.webp" alt="" width="480" height="455" loading="lazy" aria-hidden="true">
+    <div class="fd-wrap fd-hero-in">
+      <div class="fd-hero-txt" data-r>
+        <p class="fd-badge"><span>COMING SOON</span>2027年2月 導入予定</p>
+        <img class="fd-logo" src="img/4d-logo-white.webp" alt="4D-Stretch" width="430" height="142" loading="lazy">
+        <h2 id="fd-title"><span>ひねって、</span><span>ゆるめて、</span><br><em>“動ける体”</em>へ。</h2>
+        <p class="fd-lead">Recbossに、マシンブランド「4D-Stretch」の下半身用・上半身用の2台がやってきます。高い負荷をかけずに、股関節や肩甲骨まわりをひねりながら大きく動かす。成長期に無理な高負荷をかけない、アスリートコースの考え方にも合ったマシンです。</p>
+        <a class="fd-jump" href="#fd-product">導入する2台のマシンを見る<span aria-hidden="true">→</span></a>
       </div>
-      <div class="fourd-machine" data-r="1">
-        <small>UPPER BODY</small>
-        <h3>上半身：肩甲骨・肩まわり</h3>
-        <p>肩甲骨を上げる、下げる、回す動きに、ひねりを加えてくり返します。投げる・打つ動きの準備に向いています。</p>
+      <div class="fd-hero-img" data-r="1">
+        <div class="fd-floor" aria-hidden="true"></div>
+        <img class="fd-h-hip" src="img/4d-hip.webp" alt="4D-Stretch トータルヒップジョイント（下半身用マシン）" width="1400" height="920" loading="lazy">
+        <img class="fd-h-sh" src="img/4d-shoulder.webp" alt="4D-Stretch トータルショルダージョイント（上半身用マシン）" width="620" height="1215" loading="lazy">
       </div>
     </div>
-    <div class="fourd-base" data-r>
-      <h3>本気で野球をやりたい選手へ</h3>
-      <p>投げる・打つは、腕だけの動きではありません。股関節のひねりを体幹から肩・腕へ伝える動きです。4Dストレッチで股関節と肩甲骨まわりを動かし、フォーム指導とあわせて、肩や肘に負担を集めにくい体の使い方を身につけていきます。もちろん、走る・跳ぶ・切り返す動きの多い他の競技の選手にもおすすめです。</p>
-    </div>
-    <div class="fourd-offer" data-r>
-      <div>
-        <h3>オープン割なら、導入後も月9,900円のまま</h3>
-        <p>先着10名のオープン割は、入会後もずっと月9,900円。4Dストレッチが入っても料金は据置です。龍ケ崎周辺ではまだ出会う機会の少ないマシンを、この料金で続けられるのはオープン割の方だけ。先着10名に達すると、通常料金の月16,000円になります。</p>
-        <p class="fourd-now">はじめるなら、今です。</p>
+  </div>
+
+  <div class="fd-body">
+    <div class="fd-wrap">
+      <div class="fd-h" data-r>
+        <span class="fd-en">Concept</span>
+        <h3>力を抜いて、マシンの動きにまかせる。</h3>
+        <p>4D-Stretchは、筋肉を大きくするための「重さを持ち上げるマシン」ではありません。マシンのガイドに沿って、関節をひねりながら大きくくり返し動かす、モビリティ（動きやすさ）のためのトレーニングマシンです。</p>
       </div>
-      <a href="https://calendar.app.google/3XQc4kLp7om91zVH8" target="_blank" rel="noopener" class="btn">体験を予約する</a>
+      <ol class="fd-points">
+        <li data-r><b>01</b><h4>ひねり（回旋）が入る</h4><p>曲げる・伸ばすだけでなく、関節をひねる動きを加えます。ふだんのトレーニングでは出しにくい、立体的な動きです。</p></li>
+        <li data-r="1"><b>02</b><h4>力まず、大きく動ける</h4><p>マシンが軌道をガイドするので、毎回同じ動きをくり返せます。力を抜いたまま、関節を大きく動かしていきます。</p></li>
+        <li data-r="2"><b>03</b><h4>高い負荷をかけない</h4><p>メーカーによると、小学生からご高齢の方まで使えるマシンです。運動が久しぶりの方も、体調を確認しながら取り入れられます。</p></li>
+      </ol>
+
+      <div class="fd-h" id="fd-product" data-r>
+        <span class="fd-en">Product</span>
+        <h3>Recbossに入る2台のマシン</h3>
+        <p>下半身用・上半身用の2台をそろえて導入します。</p>
+      </div>
+      <div class="fd-products">
+        <article class="fd-card" data-r>
+          <div class="fd-card-img"><span>LOWER BODY</span><img src="img/4d-hip.webp" alt="トータルヒップジョイント" width="1400" height="920" loading="lazy"></div>
+          <div class="fd-card-body">
+            <p class="fd-model">Total Hip Joint</p>
+            <h4>トータルヒップジョイント<small>下半身用｜股関節・骨盤まわり</small></h4>
+            <p>回旋するペダルを踏みながら、股関節を外にひねる、後ろへ伸ばす、内にひねる。股関節・膝・足首を連動させて伸ばす動きで、走る・跳ぶ・踏ん張る動きの土台を整えます。</p>
+            <dl class="fd-spec">
+              <div><dt>主な部位</dt><dd>股関節／もも裏／お尻／ふくらはぎ／内もも</dd></div>
+              <div><dt>メニュー数</dt><dd>約10種類</dd></div>
+            </dl>
+            <figure class="fd-video">
+              <video muted loop playsinline preload="none" poster="img/4d-hip-poster.webp" data-src="img/4d-hip.mp4" aria-label="トータルヒップジョイントの動作映像"></video>
+              <figcaption>トータルヒップジョイントの動き</figcaption>
+            </figure>
+          </div>
+        </article>
+        <article class="fd-card" data-r="1">
+          <div class="fd-card-img"><span>UPPER BODY</span><img src="img/4d-shoulder.webp" alt="トータルショルダージョイント" width="620" height="1215" loading="lazy"></div>
+          <div class="fd-card-body">
+            <p class="fd-model">Total Shoulder Joint</p>
+            <h4>トータルショルダージョイント<small>上半身用｜肩甲骨・肩まわり</small></h4>
+            <p>肩甲骨を上げる、下げる、回す動きに、ひねりを加えてくり返します。上半身と下半身のひねりの差をつくる動きも入り、投げる・打つ動きの準備に向いています。</p>
+            <dl class="fd-spec">
+              <div><dt>主な部位</dt><dd>肩甲骨／胸郭（胸まわり）／鎖骨／肩関節まわり</dd></div>
+              <div><dt>メニュー数</dt><dd>約20種類</dd></div>
+            </dl>
+            <figure class="fd-video">
+              <video muted loop playsinline preload="none" poster="img/4d-sh-poster.webp" data-src="img/4d-shoulder.mp4" aria-label="トータルショルダージョイントの動作映像"></video>
+              <figcaption>トータルショルダージョイントの動き</figcaption>
+            </figure>
+          </div>
+        </article>
+      </div>
+      <div class="fd-base" data-r>
+        <h3>本気で野球をやりたい選手へ</h3>
+        <p>投げる・打つは、腕だけの動きではありません。股関節のひねりを体幹から肩・腕へ伝える動きです。4D-Stretchで股関節と肩甲骨まわりを動かし、フォーム指導とあわせて、肩や肘に負担を集めにくい体の使い方を身につけていきます。もちろん、走る・跳ぶ・切り返す動きの多い他の競技の選手にもおすすめです。</p>
+      </div>
+      <div class="fd-offer" data-r>
+        <div>
+          <h3>オープン割なら、導入後も<em>月9,900円</em>のまま</h3>
+          <p>先着10名のオープン割は、入会後もずっと月9,900円。4D-Stretchが入っても料金は据置です。龍ケ崎周辺ではまだ出会う機会の少ないマシンを、この料金で続けられるのはオープン割の方だけ。先着10名に達すると、通常料金の月16,000円になります。</p>
+          <p class="fd-now">はじめるなら、今です。</p>
+        </div>
+        <a href="https://calendar.app.google/3XQc4kLp7om91zVH8" target="_blank" rel="noopener" class="btn">体験を予約する</a>
+      </div>
+      <p class="fd-note">※導入時期は予定であり、変更になる場合があります。※金額は税込です。※感じ方や変化には個人差があります。痛みのある方、通院中の方は事前にご相談ください。<br>※マシンの写真・映像・ロゴは4D-Stretch株式会社の提供です。メニュー数はメーカー公表の目安です。製品の詳細は<a href="https://4d-stretch.com/" target="_blank" rel="noopener">4D-Stretch公式サイト</a>をご覧ください。</p>
     </div>
-    <p class="fourd-note">※導入時期は予定であり、変更になる場合があります。※金額は税込です。※感じ方や変化には個人差があります。痛みのある方、通院中の方は事前にご相談ください。</p>
   </div>
 </section>
 
@@ -846,6 +986,17 @@ footer { padding: 54px 0 100px; border-top: 1px solid var(--line); color: var(--
     if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
   }), { threshold: .12 });
   document.querySelectorAll('[data-r]').forEach(el => io.observe(el));
+  // 4D-Stretch の映像：見えたときだけ読み込んで再生
+  const fdReduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fdIo = new IntersectionObserver(es => es.forEach(e => {
+    const v = e.target;
+    if (e.isIntersecting) {
+      if (!v.src) v.src = v.dataset.src;
+      if (fdReduce) { v.controls = true; } else { v.play().catch(() => { v.controls = true; }); }
+    } else if (!v.paused) { v.pause(); }
+  }), { threshold: .35 });
+  document.querySelectorAll('.fd-video video').forEach(v => fdIo.observe(v));
+
 </script>
 </body>
 </html>
