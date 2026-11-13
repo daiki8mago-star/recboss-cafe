@@ -62,6 +62,7 @@
       }
     ],
     "priceRange": "¥1,000〜",
+    "areaServed": ["龍ケ崎市", "牛久市", "取手市", "つくばみらい市", "稲敷市", "利根町", "河内町"],
     "sameAs": [
       "https://www.instagram.com/ryugasaki_recboss"
     ]
@@ -262,7 +263,9 @@ header {
   font-weight: 700; font-size: .95rem; color: var(--green-dark);
   border: 1.5px solid var(--green); border-radius: 999px; padding: 6px 16px; margin-bottom: 20px; background: #fff;
 }
+.hero-h1wrap { font: inherit; }
 .hero-h1 {
+  display: block;
   font-family: var(--round); font-weight: 900; color: var(--green);
   font-size: clamp(2.4rem, 4.8vw, 4.2rem); line-height: 1.25; letter-spacing: .02em;
   margin-bottom: 18px;
@@ -399,6 +402,9 @@ header {
 .goal-lead { max-width: 760px; margin: 0 auto 30px; color: var(--sub); font-weight: 500; line-height: 1.9; }
 .goal-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 920px; margin: 0 auto; }
 .goal-note { text-align: center; margin-top: 22px; font-weight: 700; color: var(--green-dark); }
+.more-link { text-align: center; margin-top: 26px; }
+.more-link a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 700; color: var(--green-dark); border-bottom: 2px solid var(--green-soft); }
+.more-link a:hover { border-color: var(--green); }
 
 /* ══════════════════════════════
    CLASS FLOW（クラスの流れ・チラシ準拠）
@@ -876,6 +882,8 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
   <a href="#trainer">トレーナー紹介</a>
   <a href="#turtle">亀のロゴに込めた想い</a>
   <a href="#semipro">セミパーソナルとは</a>
+  <a href="diet.html">50代・60代からのダイエット</a>
+  <a href="4d-stretch.html">4D-Stretch（2027年2月導入予定）</a>
   <a href="#class">クラスの流れ</a>
   <a href="#schedule">スケジュール</a>
   <a href="#plans">料金プラン</a>
@@ -905,8 +913,7 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
     <div class="hero-copy">
       <p class="hero-open"><b>NOW OPEN</b>2026.10.26 オープン</p>
       <p class="hero-new"><a href="#fourd">2027年2月 4Dストレッチ導入予定</a></p>
-      <span class="hero-for">龍ケ崎・馴馬｜50〜60代のセミパーソナルジム</span>
-      <h1 class="hero-h1" id="hero-title">健康寿命を<br>のばす習慣を</h1>
+      <h1 class="hero-h1wrap" id="hero-title"><span class="hero-for">龍ケ崎・馴馬｜50〜60代のセミパーソナルジム</span><span class="hero-h1">健康寿命を<br>のばす習慣を</span></h1>
       <p class="hero-sub">ダイエットも、体力づくりも。<br>目的に合わせたオーダーメイド。</p>
       <p class="hero-lead">やせたい、筋力をつけたい、いつまでも元気に動ける体でいたい——目的は人それぞれ。Recboss personal GYMは、一人ひとりの目的と体力に合わせたトレーニングで、あなたの「これから」を全力でサポートします。</p>
       <div class="hero-btns">
@@ -987,6 +994,7 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
         </div>
       </div>
       <p class="goal-note">同じクラスの中でも、お一人ずつ種目や負荷を調整します。</p>
+      <p class="more-link"><a href="diet.html">50代・60代から始めるダイエットについて詳しく<span aria-hidden="true">→</span></a></p>
     </div>
   </div>
 </section>
@@ -1076,7 +1084,7 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
         </div>
         <a href="https://calendar.app.google/3XQc4kLp7om91zVH8" target="_blank" rel="noopener" class="btn btn-main">まずは体験を予約する</a>
       </div>
-      <p class="fd-note">※導入時期は予定であり、変更になる場合があります。※金額は税込です。※感じ方や変化には個人差があります。痛みのある方、通院中の方は事前にご相談ください。<br>※マシンの写真・映像・ロゴは4D-Stretch株式会社の提供です。メニュー数はメーカー公表の目安です。製品の詳細は<a href="https://4d-stretch.com/" target="_blank" rel="noopener">4D-Stretch公式サイト</a>をご覧ください。</p>
+      <p class="fd-note">※導入時期は予定であり、変更になる場合があります。※金額は税込です。※感じ方や変化には個人差があります。痛みのある方、通院中の方は事前にご相談ください。<br>※マシンの写真・映像・ロゴは4D-Stretch株式会社の提供です。メニュー数はメーカー公表の目安です。製品の詳細は<a href="https://4d-stretch.com/" target="_blank" rel="noopener">4D-Stretch公式サイト</a>をご覧ください。<br>Recbossでの導入については<a href="4d-stretch.html">4D-Stretchの紹介ページ</a>にもまとめています。</p>
     </div>
   </div>
 </section>
@@ -1171,6 +1179,7 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
         <p>マンツーマンより、ぐっとお手頃な料金。毎月の負担が軽いから、あせらず、長く続けられます。</p>
       </div>
     </div>
+    <p class="more-link"><a href="semi-personal.html">セミパーソナルとパーソナルジムの違いを詳しく<span aria-hidden="true">→</span></a></p>
   </div>
 </section>
 
@@ -1373,7 +1382,8 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
         <div class="acc-row"><div class="acc-ic"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></div><div><div class="acc-k">所在地</div><div class="acc-v">〒301-0004 茨城県龍ケ崎市馴馬町2867-2<br>マイホームビル2階</div></div></div>
         <div class="acc-row"><div class="acc-ic"><svg class="ico" aria-hidden="true"><use href="#i-calendar"/></svg></div><div><div class="acc-k">営業日時</div><div class="acc-v">月曜〜土曜 9:30〜20:10<br>（日曜休館・クラス制のため時間割をご確認ください）</div></div></div>
         <div class="acc-row"><div class="acc-ic"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg></div><div><div class="acc-k">お電話</div><div class="acc-v"><a href="tel:09010796757" class="acc-tel">090-1079-6757</a><br>受付 9:00〜20:00</div></div></div>
-        <div class="acc-row"><div class="acc-ic"><svg class="ico" aria-hidden="true"><use href="#i-car"/></svg></div><div><div class="acc-k">駐車場</div><div class="acc-v">無料駐車場完備</div></div></div>
+        <div class="acc-row"><div class="acc-ic"><svg class="ico" aria-hidden="true"><use href="#i-car"/></svg></div><div><div class="acc-k">お車で</div><div class="acc-v">無料駐車場完備<br>牛久市・取手市・つくばみらい市・稲敷市・利根町・河内町など、龍ケ崎市の近隣からもお車でお越しいただけます。</div></div></div>
+        <div class="acc-row"><div class="acc-ic"><svg class="ico" aria-hidden="true"><use href="#i-walk"/></svg></div><div><div class="acc-k">電車で</div><div class="acc-v">最寄り駅は関東鉄道竜ヶ崎線「竜ヶ崎駅」です。<br>JR常磐線「龍ケ崎市駅」（旧・佐貫駅）で竜ヶ崎線に乗り換えられます。</div></div></div>
         <div class="acc-row"><div class="acc-ic"><svg class="ico" aria-hidden="true"><use href="#i-stairs"/></svg></div><div><div class="acc-k">建物・階段</div><div class="acc-v">マイホームビル2階です。エレベーターはありません。<br>階段には手すりがあります。</div></div></div>
         <a href="https://share.google/Zv0X3zYFqRsRhe248" target="_blank" rel="noopener" class="gbp-link"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Googleマップでお店を見る・道案内</a>
       </div>
@@ -1426,6 +1436,14 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
         <p class="faq-a">当ジムはマイホームビルの2階で、エレベーターはありません。階段には手すりがありますので、ゆっくりお上がりください。階段に不安がある方は、体験のご予約前にお電話（090-1079-6757）でお気軽にご相談ください。</p>
       </details>
       <details>
+        <summary><span class="q-mark">Q</span>龍ケ崎市以外からでも通えますか？<span class="q-plus" aria-hidden="true">＋</span></summary>
+        <p class="faq-a">はい、お住まいの地域に制限はありません。無料駐車場がありますので、牛久市・取手市・つくばみらい市・稲敷市・利根町・河内町など近隣の市や町からも、お車でお越しいただけます。場所は龍ケ崎市役所（「龍ヶ崎」「竜ヶ崎」と書かれることもあります）から徒歩2分です。</p>
+      </details>
+      <details>
+        <summary><span class="q-mark">Q</span>パーソナルジム（パーソナルトレーニング）とは何が違いますか？<span class="q-plus" aria-hidden="true">＋</span></summary>
+        <p class="faq-a">パーソナルトレーニングは1対1、Recbossのセミパーソナルは最大5名の少人数制です。トレーナーが一人ひとりの目的と体調に合わせてメニューを調整する点は同じで、仲間と一緒に続けやすいのが特長です。詳しくは<a href="semi-personal.html" style="color:var(--green-dark);text-decoration:underline">セミパーソナルとは</a>をご覧ください。</p>
+      </details>
+      <details>
         <summary><span class="q-mark">Q</span>持ち物や服装は何が必要ですか？<span class="q-plus" aria-hidden="true">＋</span></summary>
         <p class="faq-a">動きやすい服装と室内シューズをご用意ください。タオルと水分補給用のお飲み物があると便利です。</p>
       </details>
@@ -1471,6 +1489,9 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
         <li><a href="#schedule">スケジュール</a></li>
         <li><a href="#plans">料金プラン</a></li>
         <li><a href="athlete.html">アスリートコース</a></li>
+        <li><a href="semi-personal.html">セミパーソナルとは</a></li>
+        <li><a href="diet.html">50代・60代からのダイエット</a></li>
+        <li><a href="4d-stretch.html">4D-Stretch</a></li>
       </ul>
     </div>
     <div class="foot-col">
