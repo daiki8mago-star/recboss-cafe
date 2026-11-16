@@ -13,7 +13,7 @@
   <!-- SNSシェア用 -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Recboss GYM（レクボス）｜龍ケ崎のセミパーソナルジム">
-  <meta property="og:description" content="ダイエットも、筋力アップも。目的に合わせたオーダーメイドのトレーニングを、救急救命士がサポートするセミパーソナルジム。週1コースはオープン割¥9,900（先着30名・通常¥22,000）。初回体験70分¥1,000。">
+  <meta property="og:description" content="龍ケ崎市役所から徒歩2分。救急救命士が指導する、1クラス5人までのセミパーソナルジム。ダイエットも体力づくりも、メニューはお一人ずつ組みます。週1コースはオープン割¥9,900（先着30名・通常¥22,000）。初回体験70分¥1,000。">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:url" content="https://recbossgym.com/">
   <meta property="og:image" content="https://recbossgym.com/logo-recboss.jpg">
@@ -116,7 +116,6 @@ a { color: inherit; text-decoration: none; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
-  [data-r] { opacity: 1 !important; transform: none !important; }
   html { scroll-behavior: auto; }
 }
 
@@ -315,13 +314,15 @@ header {
 /* ══════════════════════════════
    SUPPORT（Recbossのサポート内容）
 ══════════════════════════════ */
-.support-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-.sup { text-align: center; padding: 30px 18px 28px; background: #fff; border-radius: 20px; border: 1px solid var(--line); }
-.sup-ic { width: 92px; height: 92px; margin: 0 auto 14px; color: var(--green); position: relative; }
-.sup-ic .ico { width: 92px; height: 92px; stroke-width: 1.6; }
-.sup-ic .ico.heart { color: var(--accent); }
-.sup h3 { font-family: var(--round); font-weight: 900; font-size: 1.16rem; color: var(--green-dark); margin-bottom: 10px; line-height: 1.5; }
-.sup p { font-size: .94rem; color: var(--sub); font-weight: 500; line-height: 1.85; text-align: left; }
+.about { max-width: 920px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; column-gap: 56px; border-top: 2px solid var(--black); }
+.about > div { padding: 26px 0 24px; border-bottom: 1px solid var(--line); }
+.about dt { font-family: var(--round); font-weight: 900; font-size: 1.22rem; color: var(--green-dark); line-height: 1.5; margin-bottom: 6px; }
+.about dd { color: var(--ink); font-weight: 500; line-height: 1.9; }
+.flow-lead { text-align: center; font-weight: 700; margin: -14px 0 32px; }
+.after-class { max-width: 820px; margin: 34px auto 0; background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 24px 28px; }
+.after-class h3 { font-family: var(--round); font-weight: 900; font-size: 1.15rem; color: var(--green-dark); margin-bottom: 6px; }
+.after-class p { font-weight: 500; }
+.flow-cta { text-align: center; margin-top: 28px; }
 
 /* ══════════════════════════════
    TRAINER（トレーナー紹介）
@@ -607,12 +608,6 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
 .foot-links a:hover { color: #fff; }
 .foot-bar { max-width: 1100px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.15); padding-top: 22px; text-align: center; font-size: .8rem; color: rgba(255,255,255,.65); font-family: var(--wm); letter-spacing: .08em; }
 
-/* ── REVEAL（控えめに） ── */
-[data-r] { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
-[data-r].in { opacity: 1; transform: none; }
-[data-r="1"] { transition-delay: .08s; }
-[data-r="2"] { transition-delay: .16s; }
-[data-r="3"] { transition-delay: .24s; }
 
 .float-cta { display: none; }
 
@@ -621,7 +616,7 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
 ══════════════════════════════ */
 @media (max-width: 1080px) {
   .nav { display: none; }
-  .support-grid { grid-template-columns: 1fr 1fr; }
+  .about { column-gap: 36px; }
 }
 @media (max-width: 1100px) {
   .hero-card { margin: -48px 20px 0; grid-template-columns: 1fr; gap: 28px; padding: 40px 36px; }
@@ -687,7 +682,9 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
 }
 @media (max-width: 560px) {
   body { font-size: 17px; }
-  .support-grid { grid-template-columns: 1fr; }
+  .about { grid-template-columns: 1fr; }
+  .after-class { padding: 20px 18px; }
+  .voice p { text-align: left; }
   .goal-grid { grid-template-columns: 1fr; }
   .sp-compare { grid-template-columns: 1fr; }
   .sp-col + .sp-col { border-left: none; border-top: 1px solid var(--line); }
@@ -798,7 +795,6 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
 .fd-offer h3 { font-weight: 900; font-size: clamp(1.3rem, 2.6vw, 1.7rem); line-height: 1.5; margin-bottom: 8px; }
 .fd-offer h3 em { font-style: normal; color: var(--fd-teal-l); }
 .fd-offer p { font-weight: 500; line-height: 1.9; color: rgba(255,255,255,.86); }
-.fd-now { font-weight: 900 !important; color: #fff !important; font-size: 1.15rem; margin-top: 6px; }
 .fd-note { margin-top: 18px; color: var(--fd-sub); font-size: .8rem; line-height: 1.8; }
 .fd-note a { color: inherit; text-underline-offset: 3px; }
 
@@ -914,8 +910,8 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
       <p class="hero-open"><b>NOW OPEN</b>2026.10.26 オープン</p>
       <p class="hero-new"><a href="#fourd">2027年2月 4Dストレッチ導入予定</a></p>
       <h1 class="hero-h1wrap" id="hero-title"><span class="hero-for">龍ケ崎・馴馬｜50〜60代のセミパーソナルジム</span><span class="hero-h1">健康寿命を<br>のばす習慣を</span></h1>
-      <p class="hero-sub">ダイエットも、体力づくりも。<br>目的に合わせたオーダーメイド。</p>
-      <p class="hero-lead">やせたい、筋力をつけたい、いつまでも元気に動ける体でいたい——目的は人それぞれ。Recboss personal GYMは、一人ひとりの目的と体力に合わせたトレーニングで、あなたの「これから」を全力でサポートします。</p>
+      <p class="hero-sub">ダイエットも、体力づくりも。<br>メニューはお一人ずつ組みます。</p>
+      <p class="hero-lead">トレーナー2人でやっている、1クラス5人までの小さなジムです。毎回はじめの10分で体調を伺ってから、その日のメニューを決めます。運動が何年ぶりでも、椅子に座ったままの運動から始められます。</p>
       <div class="hero-btns">
         <a href="https://calendar.app.google/3XQc4kLp7om91zVH8" target="_blank" rel="noopener" class="btn btn-main">体験を予約する</a>
         <a href="https://lin.ee/PnJCTCy" target="_blank" rel="noopener" class="btn btn-line"><span class="line-badge" aria-hidden="true">LINE</span>LINEで相談する</a>
@@ -936,7 +932,7 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
     <img class="manifesto-mark" src="img/mark-light.webp" alt="" width="380" height="263">
     <div>
       <q>病院に通う未来より、<br><span class="y">ジムに通う今</span>を。</q>
-      <p>健康は、悪くなってから取り戻すより、元気なうちから守っていくもの。週1回の運動習慣で、いつまでも動ける体を。病気になってからお金をかけるのではなく、今から体を動かすことに使う。10年後、20年後も元気に動ける体づくりを、龍ケ崎から。</p>
+      <p>体は、悪くしてから取り戻すより、動けるうちに保つほうがずっと楽です。そのために要るのは、きつい運動より、週に1回でも続けて体を動かすことだと私たちは考えています。10年後も、自分の足で買い物や旅行に出かけられるように。Recbossはそのためのジムです。</p>
       <small>週1コースはオープン割 月¥9,900（税込・先着30名）からはじめられます。</small>
     </div>
   </div>
@@ -946,51 +942,46 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
 <section class="section" id="support">
   <div class="wrap">
     <div class="head">
-      <span class="wm-label">Support</span>
-      <h2><span class="ribbon">Recbossのサポート内容</span></h2>
+      <h2><span class="ribbon">Recbossはこんなジムです</span></h2>
     </div>
-    <div class="support-grid">
-      <article class="sup" data-r>
-        <div class="sup-ic"><svg class="ico" aria-hidden="true"><use href="#i-medical"/></svg></div>
-        <h3>救急救命士が<br>サポート</h3>
-        <p>国家資格をもつ救急救命士が、その日の体調を確かめながら、一人ひとりの体や目標に合わせたオーダーメイドのプログラムを提供します。</p>
-      </article>
-      <article class="sup" data-r="1">
-        <div class="sup-ic"><svg class="ico" aria-hidden="true"><use href="#i-runner"/></svg></div>
-        <h3>健康寿命を<br>のばす</h3>
-        <p>筋力・バランス・持久力をバランスよく整え、元気に動ける体へ。</p>
-      </article>
-      <article class="sup" data-r="2">
-        <div class="sup-ic"><svg class="ico heart" aria-hidden="true"><use href="#i-heart"/></svg></div>
-        <h3>生活習慣病の<br>予防</h3>
-        <p>運動習慣は血圧や血糖値の改善につながるとされ、将来のリスク軽減に役立ちます。</p>
-      </article>
-      <article class="sup" data-r="3">
-        <div class="sup-ic"><svg class="ico" aria-hidden="true"><use href="#i-smile"/></svg></div>
-        <h3>安心・<br>続けやすい</h3>
-        <p>無理のないペースで、楽しく続けられる環境をご用意。運動が久しぶりの方も安心です。</p>
-      </article>
-    </div>
+    <dl class="about">
+      <div>
+        <dt>救急救命士がいます</dt>
+        <dd>代表のAoiは、国家資格をもつ救急救命士です。クラスの前に必ず体調を伺い、必要なときは血圧も測ります。調子がよくない日は、運動を軽くするか、お休みにします。</dd>
+      </div>
+      <div>
+        <dt>1クラスは5人まで</dt>
+        <dd>全員の動きにトレーナーの目が届く人数にしています。同じクラスの中でも、種目や回数はお一人ずつ変えます。</dd>
+      </div>
+      <div>
+        <dt>椅子の運動から、器具まで</dt>
+        <dd>膝や腰が気になる日は、椅子に座ったままでも運動できます。慣れてきたら、器具を使って少しずつ負荷を上げます。痛いときは休んでください。</dd>
+      </div>
+      <div>
+        <dt>終わったら、ラウンジでお茶を</dt>
+        <dd>クラスのあとは、ラウンジで無料のお飲み物をお出ししています。少し話していっても、そのまま帰っても大丈夫です。</dd>
+      </div>
+    </dl>
 
     <div class="goals" id="goals">
-      <h3 class="goal-title">目的は、人それぞれ。<span>メニューは、一人ひとりオーダーメイド。</span></h3>
-      <p class="goal-lead">Recbossはリハビリ施設や介護施設ではなく、しっかり体を動かすトレーニングジムです。カウンセリングで伺った目的と体力に合わせて、運動の種類も強さもお一人ずつ組み立てます。</p>
+      <h3 class="goal-title">やせたい方も、体力をつけたい方も。<span>目的に合わせてメニューを組みます</span></h3>
+      <p class="goal-lead">Recbossはリハビリ施設や介護施設ではなく、しっかり体を動かすトレーニングジムです。最初に目的を伺って、運動の種類も強さもお一人ずつ決めています。</p>
       <div class="goal-grid">
-        <div class="sp-card" data-r>
+        <div class="sp-card">
           <h3><svg class="ico" aria-hidden="true"><use href="#i-runner"/></svg>ダイエット・引き締め</h3>
-          <p>筋力トレーニングと有酸素運動を組み合わせて、体重や見た目の変化を目指す方に。体力に合わせて、しっかり汗をかくメニューも組めます。</p>
+          <p>体重や見た目を変えたい方には、筋力トレーニングと有酸素運動を組み合わせます。体力がある方には、しっかり汗をかくメニューにします。</p>
         </div>
-        <div class="sp-card" data-r="1">
+        <div class="sp-card">
           <h3><svg class="ico" aria-hidden="true"><use href="#i-dumbbell"/></svg>筋力・体力アップ</h3>
-          <p>器具を使った筋力トレーニングで、階段や重い荷物もラクに感じる体へ。レベルに合わせて負荷を少しずつ上げていきます。</p>
+          <p>器具を使って筋力をつけていきます。階段や重い買い物袋が前より楽になるのが目安です。負荷は様子を見ながら少しずつ上げます。</p>
         </div>
-        <div class="sp-card" data-r="2">
+        <div class="sp-card">
           <h3><svg class="ico" aria-hidden="true"><use href="#i-walk"/></svg>姿勢・動きやすい体</h3>
-          <p>ストレッチや体幹トレーニングで、姿勢や体の動かしやすさを整えます。ゴルフや趣味のスポーツを長く楽しみたい方にも。</p>
+          <p>ストレッチと体幹トレーニングが中心です。ゴルフなど、趣味のスポーツを長く続けたい方にも向いています。</p>
         </div>
-        <div class="sp-card" data-r="3">
+        <div class="sp-card">
           <h3><svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg>健康維持・体力づくり</h3>
-          <p>運動が久しぶりの方や、膝・腰に不安がある方は、椅子を使った軽い運動から無理なくスタートできます。</p>
+          <p>運動が久しぶりの方や、膝・腰が気になる方は、椅子を使った軽い運動から始めます。</p>
         </div>
       </div>
       <p class="goal-note">同じクラスの中でも、お一人ずつ種目や負荷を調整します。</p>
@@ -999,19 +990,162 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
   </div>
 </section>
 
+<!-- ════ CLASS FLOW ════ -->
+<section class="section bg-pale" id="class">
+  <div class="wrap">
+    <div class="flow-head">
+      <h2><span class="ribbon">体験の日の70分</span></h2>
+      <span class="per-class"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>1回 <b>70</b>分</span>
+    </div>
+    <p class="flow-lead">体験も、ふだんのクラスも、同じ70分です。<br>体験の日はこんなふうに進みます。</p>
+    <ol class="cflow">
+      <li class="cstep">
+        <div class="cstep-top"><span class="cmin">10<small>分</small></span><h3>カウンセリング</h3></div>
+        <p>体調と、気になっているところを伺います。体験の日はここで、前屈・片足立ち・椅子の立ち座り・腕の上がり方の4つを測ります。そのあと、今日やる運動を1分半ほどの動画で先にお見せします。</p>
+        <img src="img/flow-counseling.webp" alt="カウンセリング：受付でトレーナーが体の図を見せながら体調やお悩みを聞いている様子" width="600" height="335" loading="lazy">
+      </li>
+      <li class="carrow" aria-hidden="true"><svg viewBox="0 0 18 28"><path d="M0 0l18 14L0 28z"/></svg></li>
+      <li class="cstep">
+        <div class="cstep-top"><span class="cmin">50<small>分</small></span><h3>運動</h3></div>
+        <p>体験では、もも上げ、椅子スクワット、かかと上げ、サイドステップが中心です。回数はその場で決めます。きつければ椅子や支えを使い、痛ければ休んでください。</p>
+        <img src="img/flow-training.webp" alt="運動：マットの上でストレッチする女性を、トレーナーがそばで支えている様子" width="600" height="335" loading="lazy">
+      </li>
+      <li class="carrow" aria-hidden="true"><svg viewBox="0 0 18 28"><path d="M0 0l18 14L0 28z"/></svg></li>
+      <li class="cstep">
+        <div class="cstep-top"><span class="cmin">10<small>分</small></span><h3>振り返り</h3></div>
+        <p>はじめに測った4つを、もう一度測ります。70分でどこが変わったか、数字を見ながら一緒に確かめます。</p>
+        <img src="img/flow-review.webp" alt="振り返り：いすに座ってトレーナーと女性が今日の運動を振り返っている様子" width="600" height="335" loading="lazy">
+      </li>
+    </ol>
+    <div class="after-class">
+      <h3>クラスのあと</h3>
+      <p>ラウンジでお茶を飲みながら、感想を聞かせてください（お急ぎの方はそのままお帰りいただけます）。コースや料金のご説明もここでしますが、その場で入会を決めていただく必要はありません。ご家族と相談してからで大丈夫です。</p>
+    </div>
+    <p class="note">※ふだんのクラスも、カウンセリング10分＋運動50分＋振り返り10分で進みます。測定での変化には個人差があります。</p>
+    <div class="flow-cta"><a href="https://calendar.app.google/3XQc4kLp7om91zVH8" target="_blank" rel="noopener" class="btn btn-main">体験を予約する（70分 1,000円）</a></div>
+  </div>
+</section>
+
+<!-- ════ TRAINER ════ -->
+<section class="section" id="trainer">
+  <div class="wrap">
+    <div class="head">
+      <h2><span class="ribbon">トレーナー紹介</span></h2>
+    </div>
+    <div class="trainer-grid">
+      <div class="trainer-photo">
+        <img src="img/trainer-aoi.webp" alt="Recbossのロゴボードを持って笑顔で立つ代表トレーナー 川隅蒼生（Aoi）" width="540" height="600" loading="lazy">
+      </div>
+      <div class="trainer-text">
+        <ul class="trainer-tags"><li>代表</li><li>救急救命士（国家資格）</li><li>龍ケ崎出身</li><li>サッカー歴14年</li></ul>
+        <h3 class="trainer-name">川隅 蒼生<span>Aoi</span></h3>
+        <p class="trainer-msg">龍ケ崎で生まれ育ちました。小・中学生のときはアイデンティみらい、高校は日本体育大学柏高等学校でサッカーをしていて、プロを目指していました。ところが膝に大きな怪我をして、その道はあきらめることになりました。体が思うように動かないのがどれだけつらいか、そのときに知りました。</p>
+        <p class="trainer-msg">そのあと日本体育大学の救急医療学科に進み、救急救命士になりました。救急の現場で見てきたことと、自分の怪我のこと。どちらも、地元の人が10年後も自分の足で歩けるように役立てたいと思い、Recbossを始めました。</p>
+        <p class="trainer-msg">クラスでは最初に体調を伺って、その日の様子に合わせて進めます。運動が久しぶりでも大丈夫です。</p>
+        <ul class="trainer-points">
+          <li><b>救急救命士（国家資格）</b>日本体育大学 救急医療学科で学びました。体調の小さな変化に気を配り、もしもの時も落ち着いて対応します</li>
+          <li><b>サッカー歴14年（4〜18歳）</b>アイデンティみらい、日本体育大学柏高校でプレー。怪我をした経験から、体に負担の少ない動かし方をお伝えします</li>
+          <li><b>地元・龍ケ崎</b>体のことを気軽に聞ける、近所のトレーナーでいたいと思っています</li>
+        </ul>
+      </div>
+    </div>
+    <div class="trainer-grid">
+      <div class="trainer-photo">
+        <img src="img/trainer-daiki.webp" alt="Recbossのロゴボードを持って笑顔で立つ副代表トレーナー 土生大貴（Daiki）" width="540" height="600" loading="lazy">
+      </div>
+      <div class="trainer-text">
+        <ul class="trainer-tags"><li>副代表</li><li>20歳・現役大学生</li><li>つくば市出身</li><li>ラグビー 関東大会2位</li><li>ベンチプレス100kg</li></ul>
+        <h3 class="trainer-name">土生 大貴<span>Daiki</span></h3>
+        <p class="trainer-msg">つくば市出身。子どもの頃から水泳・体操、サッカーと体を動かし続け、牛久高校ではラグビー部へ。入部してすぐ足の靭帯を損傷し、1年生の文化祭は松葉杖で過ごしましたが、その後、県内の合同選抜で関東大会2位を経験しました。動きたいのに動けない時期があったので、急がせる指導はしません。</p>
+        <p class="trainer-msg">Recbossを始めたきっかけは、2人の祖母です。母方の祖母は卓球を続けていて、そこで友達もできました。父方の祖母は体が弱って、大好きだった旅行にもあまり行けないまま亡くなりました。もっと体を動かす習慣があったら、やりたいことをもう少しできたんじゃないか。今でもそう思います。体を動かせて、友達もできる場所を龍ケ崎につくりたくて、Aoiと一緒に始めました。</p>
+        <p class="trainer-msg">今は麗澤大学で経営学と英語を勉強しながら、トレーナーをして、このホームページや予約の仕組みも作っています。趣味はドライブで、車が大好きです。車の話もぜひ聞かせてください。</p>
+        <ul class="trainer-points">
+          <li><b>週5日の筋トレでベンチプレス100kg</b>体重68kgで達成。高校のトレーニングルームでは「住人」と呼ばれ、仲間から相談を受けていました</li>
+          <li><b>水泳・体操・サッカー</b>つくばFC、FCバルツォでプレーし、フォワードとして中学3年までサッカーを続けました</li>
+          <li><b>顔なじみができる場所に</b>運動だけして帰るのではなく、ちょっと話していける場所にしたいと思っています</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ TURTLE（ロゴの想い）════ -->
+<section class="section bg-pale" id="turtle">
+  <div class="wrap turtle-grid">
+    <div class="turtle-art">
+      <img src="img/turtle.webp" alt="Recboss personal GYM のロゴ。Rの文字を甲羅にした亀" width="672" height="640" loading="lazy">
+      <p class="proverb" aria-hidden="true">鶴は千年、<span>亀は万年</span></p>
+    </div>
+    <div class="turtle-text">
+      <h2>長生きの象徴を、<br><span class="g">ロゴにしました。</span></h2>
+      <p>「鶴は千年、亀は万年」。Recbossのロゴの亀は、この日本のことわざから生まれました。亀は昔から、長生きと健康を願う縁起ものです。</p>
+      <p>長く生きるだけでなく、自分の足で歩いて、好きなことを続けられる時間を長くしたい。そう思って、このロゴにしました。亀のように、週1回を一歩ずつ続けていきましょう。</p>
+      <ul class="turtle-words">
+        <li>長寿の願い</li><li>健康寿命</li><li>一歩ずつ、コツコツ</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ════ SEMI-PERSONAL ════ -->
+<section class="section" id="semipro">
+  <div class="wrap">
+    <div class="head head-plain">
+      <h2>「<span class="g">セミパーソナル</span>」って？</h2>
+      <p class="lead">大勢のジムは気後れする。でも1対1は緊張するし、料金も高い。<br>その間をとったのが、セミパーソナルです。</p>
+    </div>
+    <div class="sp-compare">
+      <div class="sp-col"><small>一般的なジム</small><b>大人数</b><span>自分で考えて運動</span></div>
+      <div class="sp-col us"><small>Recbossのセミパーソナル</small><b>最大5名</b><span>先生ひとりがしっかり見守る</span></div>
+      <div class="sp-col"><small>マンツーマン</small><b>1対1</b><span>緊張しやすく料金も高め</span></div>
+    </div>
+    <div class="sp-grid">
+      <div class="sp-card">
+        <h3><svg class="ico" aria-hidden="true"><use href="#i-users"/></svg>ひとりじゃない</h3>
+        <p>同じクラスに何人かいるので、自分だけがずっと見られている緊張がありません。毎週顔を合わせるうちに、話す相手もできてきます。</p>
+      </div>
+      <div class="sp-card">
+        <h3><svg class="ico" aria-hidden="true"><use href="#i-usercheck"/></svg>先生の目が届く</h3>
+        <p>5人までなので、フォームの崩れや疲れ具合にすぐ気づけます。その場で回数や種目を変えます。</p>
+      </div>
+      <div class="sp-card">
+        <h3><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg>お手頃で、続く</h3>
+        <p>1対1のパーソナルより料金を抑えられます。月々の負担が軽いぶん、長く続けやすくなります。</p>
+      </div>
+    </div>
+    <p class="more-link"><a href="semi-personal.html">セミパーソナルとパーソナルジムの違いを詳しく<span aria-hidden="true">→</span></a></p>
+  </div>
+</section>
+
+<!-- ════ RECOMMEND ════ -->
+<section class="section bg-pale" id="recommend">
+  <div class="rec-box">
+    <h2 class="ribbon green">こんな方に<span class="hl">おすすめ！</span></h2>
+    <ul class="rec-list">
+      <li><span class="chk"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span>ダイエット・体の引き締めをしたい</li>
+      <li><span class="chk"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span>運動不足を解消したい</li>
+      <li><span class="chk"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span>ジムに通っても何をすればいいか分からない</li>
+      <li><span class="chk"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span>一人では運動が続かない</li>
+      <li><span class="chk"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span>筋力をつけて、いつまでも元気に動ける体でいたい</li>
+      <li><span class="chk"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span>膝や腰に不安があり、無理なく始めたい</li>
+    </ul>
+    <p class="rec-foot">ひとつでも当てはまったら、まずは体験へ。</p>
+  </div>
+</section>
+
 <!-- ════ 4D-Stretch ════ -->
 <section class="fd" id="fourd" aria-labelledby="fd-title">
   <div class="fd-hero">
     <img class="fd-mark" src="img/4d-mark.webp" alt="" width="480" height="455" loading="lazy" aria-hidden="true">
     <div class="fd-wrap fd-hero-in">
-      <div class="fd-hero-txt" data-r>
+      <div class="fd-hero-txt">
         <p class="fd-badge"><span>COMING SOON</span>2027年2月 導入予定</p>
         <img class="fd-logo" src="img/4d-logo-white.webp" alt="4D-Stretch" width="430" height="142" loading="lazy">
         <h2 id="fd-title"><span>ひねって、</span><span>ゆるめて、</span><br><em>“動ける体”</em>へ。</h2>
         <p class="fd-lead">Recbossに、マシンブランド「4D-Stretch」の下半身用・上半身用の2台がやってきます。股関節や肩甲骨まわりを、ひねりながら大きく動かす。龍ケ崎ではまだ出会う機会の少ないマシンです。</p>
         <a class="fd-jump" href="#fd-product">導入する2台のマシンを見る<span aria-hidden="true">→</span></a>
       </div>
-      <div class="fd-hero-img" data-r="1">
+      <div class="fd-hero-img">
         <div class="fd-floor" aria-hidden="true"></div>
         <img class="fd-h-hip" src="img/4d-hip.webp" alt="4D-Stretch トータルヒップジョイント（下半身用マシン）" width="1400" height="920" loading="lazy">
         <img class="fd-h-sh" src="img/4d-shoulder.webp" alt="4D-Stretch トータルショルダージョイント（上半身用マシン）" width="620" height="1215" loading="lazy">
@@ -1021,24 +1155,24 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
 
   <div class="fd-body">
     <div class="fd-wrap">
-      <div class="fd-h" data-r>
+      <div class="fd-h">
         <span class="fd-en">Concept</span>
         <h3>力を抜いて、マシンの動きにまかせる。</h3>
         <p>4D-Stretchは、筋肉を大きくするための「重さを持ち上げるマシン」ではありません。マシンのガイドに沿って、関節をひねりながら大きくくり返し動かす、モビリティ（動きやすさ）のためのトレーニングマシンです。</p>
       </div>
       <ol class="fd-points">
-        <li data-r><b>01</b><h4>ひねり（回旋）が入る</h4><p>曲げる・伸ばすだけでなく、関節をひねる動きを加えます。ふだんのトレーニングでは出しにくい、立体的な動きです。</p></li>
-        <li data-r="1"><b>02</b><h4>力まず、大きく動ける</h4><p>マシンが軌道をガイドするので、毎回同じ動きをくり返せます。力を抜いたまま、関節を大きく動かしていきます。</p></li>
-        <li data-r="2"><b>03</b><h4>高い負荷をかけない</h4><p>メーカーによると、小学生からご高齢の方まで使えるマシンです。運動が久しぶりの方も、体調を確認しながら取り入れられます。</p></li>
+        <li><b>01</b><h4>ひねり（回旋）が入る</h4><p>曲げる・伸ばすだけでなく、関節をひねる動きを加えます。ふだんのトレーニングでは出しにくい、立体的な動きです。</p></li>
+        <li><b>02</b><h4>力まず、大きく動ける</h4><p>マシンが軌道をガイドするので、毎回同じ動きをくり返せます。力を抜いたまま、関節を大きく動かしていきます。</p></li>
+        <li><b>03</b><h4>高い負荷をかけない</h4><p>メーカーによると、小学生からご高齢の方まで使えるマシンです。運動が久しぶりの方も、体調を確認しながら取り入れられます。</p></li>
       </ol>
 
-      <div class="fd-h" id="fd-product" data-r>
+      <div class="fd-h" id="fd-product">
         <span class="fd-en">Product</span>
         <h3>Recbossに入る2台のマシン</h3>
         <p>下半身用・上半身用の2台をそろえて導入します。</p>
       </div>
       <div class="fd-products">
-        <article class="fd-card" data-r>
+        <article class="fd-card">
           <div class="fd-card-img"><span>LOWER BODY</span><img src="img/4d-hip.webp" alt="トータルヒップジョイント" width="1400" height="920" loading="lazy"></div>
           <div class="fd-card-body">
             <p class="fd-model">Total Hip Joint</p>
@@ -1054,7 +1188,7 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
             </figure>
           </div>
         </article>
-        <article class="fd-card" data-r="1">
+        <article class="fd-card">
           <div class="fd-card-img"><span>UPPER BODY</span><img src="img/4d-shoulder.webp" alt="トータルショルダージョイント" width="620" height="1215" loading="lazy"></div>
           <div class="fd-card-body">
             <p class="fd-model">Total Shoulder Joint</p>
@@ -1071,16 +1205,15 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
           </div>
         </article>
       </div>
-      <ul class="fd-for" data-r>
+      <ul class="fd-for">
         <li><b>ゴルフを長く楽しみたい方に</b>股関節と肩甲骨まわりを動かし、スイングでひねりやすい体を目指します</li>
         <li><b>肩や腰まわりが固まりがちな方に</b>力を抜いて、マシンの動きに合わせて動かします</li>
         <li><b>これからも動ける体でいたい方に</b>いつものトレーニングに、動きやすさの習慣を加えます</li>
       </ul>
-      <div class="fd-offer" data-r>
+      <div class="fd-offer">
         <div>
           <h3>オープン割なら、導入後も<em>月9,900円</em>のまま</h3>
-          <p>週1コースのオープン割（先着30名）は、入会後もずっと月9,900円。4D-Stretchが入っても料金は据置です。龍ケ崎周辺ではまだ出会う機会の少ないマシンを、この料金で続けられるのはオープン割の方だけ。先着30名に達すると、通常料金の月22,000円になります。</p>
-          <p class="fd-now">はじめるなら、今です。</p>
+          <p>週1コースのオープン割（先着30名）は、入会後もずっと月9,900円です。4D-Stretchが入っても料金は変わりません。先着30名に達したあとは、通常料金の月22,000円になります。</p>
         </div>
         <a href="https://calendar.app.google/3XQc4kLp7om91zVH8" target="_blank" rel="noopener" class="btn btn-main">まずは体験を予約する</a>
       </div>
@@ -1089,154 +1222,14 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
   </div>
 </section>
 
-<!-- ════ TRAINER ════ -->
-<section class="section bg-pale" id="trainer">
-  <div class="wrap">
-    <div class="head">
-      <span class="wm-label">Trainer</span>
-      <h2><span class="ribbon">トレーナー紹介</span></h2>
-    </div>
-    <div class="trainer-grid">
-      <div class="trainer-photo" data-r>
-        <img src="img/trainer-aoi.webp" alt="Recbossのロゴボードを持って笑顔で立つ代表トレーナー 川隅蒼生（Aoi）" width="540" height="600" loading="lazy">
-      </div>
-      <div class="trainer-text" data-r="1">
-        <ul class="trainer-tags"><li>代表</li><li>救急救命士（国家資格）</li><li>龍ケ崎出身</li><li>サッカー歴14年</li></ul>
-        <h3 class="trainer-name">川隅 蒼生<span>Aoi</span></h3>
-        <p class="trainer-msg">龍ケ崎で生まれ育ち、小学生から中学生まではアイデンティみらい、高校は日本体育大学柏高等学校でサッカーに打ち込み、プロを目指していました。しかし膝の大きな怪我を経験し、プロへの道を断念。怪我で思うように体が動かないつらさを、身をもって知りました。</p>
-        <p class="trainer-msg">その後、日本体育大学 救急医療学科で学び、救急救命士に。救急の現場で積んできた経験と、自分自身の怪我の経験。その両方を活かして、地元の皆さんの「10年後も自分の足で歩ける体」を支えたい——そんな想いでRecbossを立ち上げました。</p>
-        <p class="trainer-msg">クラスではまず、その日の体調をしっかり確認してから、一人ひとりに合わせて無理なく進めます。運動が久しぶりの方も、どうぞ安心してお越しください。</p>
-        <ul class="trainer-points">
-          <li><b>救急救命士（国家資格）</b>日本体育大学 救急医療学科で学んだ知識で、体調の小さな変化に気づき、もしもの時も落ち着いて対応します</li>
-          <li><b>サッカー歴14年（4〜18歳）</b>アイデンティみらい、日本体育大学柏高校でプレー。競技と怪我の経験をもとに、体の正しい使い方を丁寧にお伝えします</li>
-          <li><b>地元・龍ケ崎</b>近くで気軽に相談できる「かかりつけのトレーナー」を目指しています</li>
-        </ul>
-      </div>
-    </div>
-    <div class="trainer-grid">
-      <div class="trainer-photo" data-r>
-        <img src="img/trainer-daiki.webp" alt="Recbossのロゴボードを持って笑顔で立つ副代表トレーナー 土生大貴（Daiki）" width="540" height="600" loading="lazy">
-      </div>
-      <div class="trainer-text" data-r="1">
-        <ul class="trainer-tags"><li>副代表</li><li>20歳・現役大学生</li><li>つくば市出身</li><li>ラグビー 関東大会2位</li><li>ベンチプレス100kg</li></ul>
-        <h3 class="trainer-name">土生 大貴<span>Daiki</span></h3>
-        <p class="trainer-msg">つくば市出身。子どもの頃から水泳・体操、サッカーと体を動かし続け、牛久高校ではラグビー部へ。入部してすぐ足の靭帯を損傷し、1年生の文化祭は松葉杖で過ごしましたが、その後、県内の合同選抜で関東大会2位を経験しました。思うように動けない時期を知っているからこそ、一人ひとりのペースを大切にします。</p>
-        <p class="trainer-msg">Recbossの原点は2人の祖母です。卓球で運動を続け、友達もできた母方の祖母。体が弱り、大好きな旅行も満足にできないまま亡くなった父方の祖母。「運動の習慣が十分にあれば、もう少し最後までやりたいことができたのかもしれない」——今でもそう思います。体を動かせて友達もできる場所を龍ケ崎につくりたいと、Aoiと一緒に立ち上げました。</p>
-        <p class="trainer-msg">今は麗澤大学で経営学と英語を学びながら、トレーナーとして指導し、ホームページやシステムづくりも担当。趣味はドライブで、車が大好きです。車の話でも、気軽に声をかけてください。</p>
-        <ul class="trainer-points">
-          <li><b>週5日の筋トレでベンチプレス100kg</b>体重68kgで達成。高校のトレーニングルームでは「住人」と呼ばれ、仲間から相談を受けていました</li>
-          <li><b>水泳・体操・サッカー</b>つくばFC、FCバルツォでプレーし、フォワードとして中学3年までサッカーを続けました</li>
-          <li><b>みんなのコミュニティに</b>運動するだけでなく、会話が生まれる「顔なじみの場所」を目指しています</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════ TURTLE（ロゴの想い）════ -->
-<section class="section bg-pale" id="turtle">
-  <div class="wrap turtle-grid">
-    <div class="turtle-art" data-r>
-      <img src="img/turtle.webp" alt="Recboss personal GYM のロゴ。Rの文字を甲羅にした亀" width="672" height="640" loading="lazy">
-      <p class="proverb" aria-hidden="true">鶴は千年、<span>亀は万年</span></p>
-    </div>
-    <div class="turtle-text" data-r="1">
-      <span class="wm-label">Our Logo</span>
-      <h2>長生きの象徴を、<br><span class="g">ロゴにしました。</span></h2>
-      <p>「鶴は千年、亀は万年」。Recbossのロゴの亀は、この日本のことわざから生まれました。亀は昔から、長生きと健康を願う縁起ものとして親しまれてきた存在です。</p>
-      <p>わたしたちが目指すのは、ただ長く生きることではなく、いつまでも自分の足で歩き、好きなことを楽しめる「健康寿命」をのばすこと。亀のように一歩ずつ、週1回の運動習慣を積み重ねて、あなたの「これから」を長く支えます。</p>
-      <ul class="turtle-words">
-        <li>長寿の願い</li><li>健康寿命</li><li>一歩ずつ、コツコツ</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ════ SEMI-PERSONAL ════ -->
-<section class="section" id="semipro">
-  <div class="wrap">
-    <div class="head head-plain">
-      <span class="wm-label">Semi-Personal</span>
-      <h2>「<span class="g">セミパーソナル</span>」って？</h2>
-      <p class="lead">大勢のジムはちょっと不安。でも1対1は緊張する。<br>そんな方に、ちょうどいい“あいだ”の運動スタイルです。</p>
-    </div>
-    <div class="sp-compare" data-r>
-      <div class="sp-col"><small>一般的なジム</small><b>大人数</b><span>自分で考えて運動</span></div>
-      <div class="sp-col us"><small>Recbossのセミパーソナル</small><b>最大5名</b><span>先生ひとりがしっかり見守る</span></div>
-      <div class="sp-col"><small>マンツーマン</small><b>1対1</b><span>緊張しやすく料金も高め</span></div>
-    </div>
-    <div class="sp-grid">
-      <div class="sp-card" data-r>
-        <h3><svg class="ico" aria-hidden="true"><use href="#i-users"/></svg>ひとりじゃない</h3>
-        <p>少人数の仲間と一緒だから、はじめてでも心細くありません。顔なじみができると、自然と通うのが楽しみになります。</p>
-      </div>
-      <div class="sp-card" data-r="1">
-        <h3><svg class="ico" aria-hidden="true"><use href="#i-usercheck"/></svg>先生の目が届く</h3>
-        <p>最大5名までだから、先生の目がちゃんと届きます。あなたの目的や体の調子に合わせて、その場で運動を調整します。</p>
-      </div>
-      <div class="sp-card" data-r="2">
-        <h3><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg>お手頃で、続く</h3>
-        <p>マンツーマンより、ぐっとお手頃な料金。毎月の負担が軽いから、あせらず、長く続けられます。</p>
-      </div>
-    </div>
-    <p class="more-link"><a href="semi-personal.html">セミパーソナルとパーソナルジムの違いを詳しく<span aria-hidden="true">→</span></a></p>
-  </div>
-</section>
-
-<!-- ════ CLASS FLOW ════ -->
-<section class="section bg-pale" id="class">
-  <div class="wrap">
-    <div class="flow-head">
-      <h2><span class="ribbon">クラスの流れ</span></h2>
-      <span class="per-class"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>1回 <b>70</b>分</span>
-    </div>
-    <ol class="cflow">
-      <li class="cstep" data-r>
-        <div class="cstep-top"><span class="cmin">10<small>分</small></span><h3>カウンセリング</h3></div>
-        <p>その日の体調やお悩みをお伺いし、メニューを調整します。</p>
-        <img src="img/flow-counseling.webp" alt="カウンセリング：受付でトレーナーが体の図を見せながら体調やお悩みを聞いている様子" width="600" height="335" loading="lazy">
-      </li>
-      <li class="carrow" aria-hidden="true"><svg viewBox="0 0 18 28"><path d="M0 0l18 14L0 28z"/></svg></li>
-      <li class="cstep" data-r="1">
-        <div class="cstep-top"><span class="cmin">50<small>分</small></span><h3>運動</h3></div>
-        <p>一人ひとりの目的に合わせたメニューで、器具を使った筋力トレーニングから椅子を使った軽い運動まで、しっかり体を動かします。</p>
-        <img src="img/flow-training.webp" alt="運動：マットの上でストレッチする女性を、トレーナーがそばで支えている様子" width="600" height="335" loading="lazy">
-      </li>
-      <li class="carrow" aria-hidden="true"><svg viewBox="0 0 18 28"><path d="M0 0l18 14L0 28z"/></svg></li>
-      <li class="cstep" data-r="2">
-        <div class="cstep-top"><span class="cmin">10<small>分</small></span><h3>振り返り</h3></div>
-        <p>その日の運動を振り返り、今後の目標やアドバイスをお伝えします。</p>
-        <img src="img/flow-review.webp" alt="振り返り：いすに座ってトレーナーと女性が今日の運動を振り返っている様子" width="600" height="335" loading="lazy">
-      </li>
-    </ol>
-  </div>
-</section>
-
-<!-- ════ RECOMMEND ════ -->
-<section class="section" id="recommend">
-  <div class="rec-box" data-r>
-    <h2 class="ribbon green">こんな方に<span class="hl">おすすめ！</span></h2>
-    <ul class="rec-list">
-      <li><span class="chk"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span>ダイエット・体の引き締めをしたい</li>
-      <li><span class="chk"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span>運動不足を解消したい</li>
-      <li><span class="chk"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span>ジムに通っても何をすればいいか分からない</li>
-      <li><span class="chk"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span>一人では運動が続かない</li>
-      <li><span class="chk"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span>筋力をつけて、いつまでも元気に動ける体でいたい</li>
-      <li><span class="chk"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span>膝や腰に不安があり、無理なく始めたい</li>
-    </ul>
-    <p class="rec-foot">ひとつでも当てはまったら、まずは体験へ。</p>
-  </div>
-</section>
-
 <!-- ════ SCHEDULE ════ -->
 <section class="section bg-pale" id="schedule">
   <div class="wrap">
     <div class="head">
-      <span class="wm-label">Schedule</span>
       <h2><span class="ribbon">クラススケジュール</span></h2>
       <p class="lead">月曜〜土曜に開催（日曜休館）。1クラスは70分。<br>おうちの予定に合わせて通いやすい、日中の時間帯が中心です。</p>
     </div>
-    <div data-r style="overflow-x:auto;">
+    <div style="overflow-x:auto;">
       <table class="sch-table">
         <thead><tr><th scope="col">時間</th><th scope="col">クラス</th><th scope="col">対象・曜日</th></tr></thead>
         <tbody>
@@ -1257,7 +1250,7 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
 
 <!-- ════ PRICE LIST ════ -->
 <section class="section" id="plans">
-  <div class="price-card" data-r>
+  <div class="price-card">
     <div class="price-top">
       <div class="pt-logo"><img src="img/mark-light.webp" alt="" width="58" height="40"><b>RECBOSS</b></div>
       <h2>料金プラン<small>PRICE LIST</small></h2>
@@ -1292,7 +1285,7 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
 <!-- ════ ATHLETE ════ -->
 <section class="section bg-pale" id="athlete">
   <div class="wrap">
-    <a href="athlete.html" class="ath-banner" data-r>
+    <a href="athlete.html" class="ath-banner">
       <div class="ath-banner-text">
         <span class="en">ATHLETE PROGRAM</span>
         <h2>中高生アスリートの方は<br><span class="g">こちらをクリック</span></h2>
@@ -1311,34 +1304,33 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
 <section class="section" id="start">
   <div class="wrap">
     <div class="head head-plain">
-      <span class="wm-label">How to Start</span>
-      <h2>はじめ方は、<span class="g">かんたん4ステップ</span></h2>
-      <p class="lead">予約から当日まで、むずかしいことは何もありません。</p>
+      <h2>予約から<span class="g">当日まで</span></h2>
+      <p class="lead">体験のご予約は、LINE・お電話・Webのどれでも大丈夫です。</p>
     </div>
     <ol class="steps">
-      <li class="step" data-r>
+      <li class="step">
         <span class="step-no">1</span>
         <span class="step-ic"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg></span>
         <h3>予約する</h3>
         <p>公式LINE・お電話・Webで。月額クラスは予約制、初回体験は空きがあれば当日もOKです。</p>
       </li>
-      <li class="step" data-r="1">
+      <li class="step">
         <span class="step-no">2</span>
         <span class="step-ic"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
         <h3>来店する</h3>
-        <p>龍ケ崎市役所から徒歩2分、マイホームビルの2階です。動きやすい服装でお越しください。</p>
+        <p>龍ケ崎市役所から徒歩2分、マイホームビルの2階です。動きやすい服装と室内シューズをお持ちください。</p>
       </li>
-      <li class="step" data-r="2">
+      <li class="step">
         <span class="step-no">3</span>
         <span class="step-ic"><svg class="ico" aria-hidden="true"><use href="#i-usercheck"/></svg></span>
         <h3>70分のクラス</h3>
         <p>カウンセリング→運動→振り返り。その日の体調に合わせるので、初めてでも置いていかれません。</p>
       </li>
-      <li class="step" data-r="3">
+      <li class="step">
         <span class="step-no">4</span>
         <span class="step-ic"><svg class="ico" aria-hidden="true"><use href="#i-users"/></svg></span>
         <h3>ラウンジでひと息</h3>
-        <p>運動のあとはラウンジでひと休み。仲間とのおしゃべりが、また来たくなる理由になります。</p>
+        <p>運動のあとは、ラウンジで無料のお飲み物をどうぞ。そのまま帰っていただいても構いません。</p>
       </li>
     </ol>
   </div>
@@ -1346,7 +1338,7 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
 
 <!-- ════ LINE ════ -->
 <section class="section bg-pale" id="line">
-  <div class="line-box" data-r>
+  <div class="line-box">
     <div>
       <h2><span class="lg" aria-hidden="true">LINE</span><span>公式LINEで<br>かんたん予約！</span></h2>
       <ul class="line-feats">
@@ -1367,10 +1359,9 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
 <section class="section" id="access">
   <div class="wrap">
     <div class="head">
-      <span class="wm-label">Access</span>
       <h2><span class="ribbon">アクセス・お問い合わせ</span></h2>
     </div>
-    <div class="walk" data-r>
+    <div class="walk">
       <div class="walk-main">
         <span class="from">龍ケ崎市役所<span class="y">から</span></span>
         <div class="big"><svg class="ico" aria-hidden="true"><use href="#i-walk"/></svg>徒歩<em>2</em>分！</div>
@@ -1378,7 +1369,7 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
       <div class="floor">お仕事帰りやお買い物ついでにも<br>当ジムは <b>2階</b> です！<br><small>（階段・手すりあり）</small></div>
     </div>
     <div class="access-grid">
-      <div data-r>
+      <div>
         <div class="acc-row"><div class="acc-ic"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></div><div><div class="acc-k">所在地</div><div class="acc-v">〒301-0004 茨城県龍ケ崎市馴馬町2867-2<br>マイホームビル2階</div></div></div>
         <div class="acc-row"><div class="acc-ic"><svg class="ico" aria-hidden="true"><use href="#i-calendar"/></svg></div><div><div class="acc-k">営業日時</div><div class="acc-v">月曜〜土曜 9:30〜20:10<br>（日曜休館・クラス制のため時間割をご確認ください）</div></div></div>
         <div class="acc-row"><div class="acc-ic"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg></div><div><div class="acc-k">お電話</div><div class="acc-v"><a href="tel:09010796757" class="acc-tel">090-1079-6757</a><br>受付 9:00〜20:00</div></div></div>
@@ -1387,7 +1378,7 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
         <div class="acc-row"><div class="acc-ic"><svg class="ico" aria-hidden="true"><use href="#i-stairs"/></svg></div><div><div class="acc-k">建物・階段</div><div class="acc-v">マイホームビル2階です。エレベーターはありません。<br>階段には手すりがあります。</div></div></div>
         <a href="https://share.google/Zv0X3zYFqRsRhe248" target="_blank" rel="noopener" class="gbp-link"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Googleマップでお店を見る・道案内</a>
       </div>
-      <div class="map-box" data-r="1">
+      <div class="map-box">
         <iframe title="Recboss personal GYM の地図"
           src="https://maps.google.com/maps?q=%E8%8C%A8%E5%9F%8E%E7%9C%8C%E9%BE%8D%E3%82%B1%E5%B4%8E%E5%B8%82%E9%A6%B4%E9%A6%AC%E7%94%BA2867-2&z=16&output=embed"
           width="100%" height="100%" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
@@ -1400,13 +1391,12 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
 <section class="section bg-pale" id="voice">
   <div class="wrap">
     <div class="head head-plain">
-      <span class="wm-label">Voice</span>
-      <h2>あなたの<span class="g">声</span>を聞かせてください</h2>
+      <h2><span class="g">オープンしたばかり</span>の<br>ジムです</h2>
     </div>
-    <div class="voice" data-r>
-      <p>Recbossは龍ケ崎で歩みはじめたばかりのジムです。<br>通ってくださった感想を、ぜひGoogleのクチコミでお聞かせください。<br><b>あなたの一言が、同じ世代の誰かの一歩を後押しします。</b></p>
-      <a href="https://share.google/Zv0X3zYFqRsRhe248" target="_blank" rel="noopener" class="btn btn-black"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg>Googleでクチコミを書く</a>
-      <small>※ 体験・ご利用後のご感想をお待ちしています。店内の様子はInstagram <a href="https://www.instagram.com/ryugasaki_recboss" target="_blank" rel="noopener">@ryugasaki_recboss</a> で公開中。</small>
+    <div class="voice">
+      <p>Recbossは2026年10月26日にオープンしました。ここに載せるお客さまの声は、これから少しずつ集めていきます。<br>店内やクラスの様子は、Instagramに載せています。来る前の下見がわりにご覧ください。</p>
+      <a href="https://www.instagram.com/ryugasaki_recboss" target="_blank" rel="noopener" class="btn btn-black">Instagramで店内を見る</a>
+      <small>※ 通ってくださっている方へ：よろしければ <a href="https://share.google/Zv0X3zYFqRsRhe248" target="_blank" rel="noopener">Googleのクチコミ</a> に感想をお寄せください。</small>
     </div>
   </div>
 </section>
@@ -1415,17 +1405,20 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
 <section class="section" id="faq">
   <div class="wrap">
     <div class="head">
-      <span class="wm-label">FAQ</span>
       <h2><span class="ribbon">よくあるご質問</span></h2>
     </div>
-    <div class="faq-wrap" data-r>
+    <div class="faq-wrap">
       <details>
         <summary><span class="q-mark">Q</span>初心者でも大丈夫ですか？<span class="q-plus" aria-hidden="true">＋</span></summary>
-        <p class="faq-a">はい、初めての方や長年運動をしていない方も、スタッフが丁寧にサポートしますのでご安心ください。まずは体験からお気軽にどうぞ。</p>
+        <p class="faq-a">大丈夫です。最初は椅子に座ったままの運動から始められますし、回数もその日の体調を見て決めます。まずは体験で、どのくらい動けるかを一緒に確かめましょう。</p>
+      </details>
+      <details>
+        <summary><span class="q-mark">Q</span>体験のあと、その場で入会を決めないといけませんか？<span class="q-plus" aria-hidden="true">＋</span></summary>
+        <p class="faq-a">いいえ、その場で決めていただく必要はありません。体験のあとにコースと料金をご説明しますので、持ち帰って、ご家族と相談してから決めてください。</p>
       </details>
       <details>
         <summary><span class="q-mark">Q</span>ダイエットや筋力アップが目的でも通えますか？<span class="q-plus" aria-hidden="true">＋</span></summary>
-        <p class="faq-a">はい、もちろんです。Recbossはリハビリ施設ではなく、目的に合わせてしっかり体を動かすトレーニングジムです。ダイエット・筋力アップ・体力づくりなど、カウンセリングで目的を伺い、運動の種類や強さをお一人ずつ組み立てます。</p>
+        <p class="faq-a">はい、通えます。Recbossはリハビリ施設ではなく、しっかり体を動かすトレーニングジムです。ダイエット、筋力アップ、体力づくりなど、最初に目的を伺って、運動の種類や強さをお一人ずつ決めています。</p>
       </details>
       <details>
         <summary><span class="q-mark">Q</span>膝が痛い・体が悪い場合でも参加できますか？<span class="q-plus" aria-hidden="true">＋</span></summary>
@@ -1462,8 +1455,8 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
 <!-- ════ CTA ════ -->
 <section class="cta">
   <img class="cta-mark" src="img/mark-light.webp" alt="" width="380" height="263">
-  <h2>あなたの「なりたい自分」を、<br>一緒に目指しましょう。</h2>
-  <p>初回体験70分 ¥1,000（ご紹介で¥0・税込）。動きやすい服装で、気軽にお越しください。</p>
+  <h2>まずは70分、<br>体を動かしに来てください。</h2>
+  <p>初回体験70分 ¥1,000（ご紹介で¥0・税込）。動きやすい服装と室内シューズでお越しください。</p>
   <a href="https://calendar.app.google/3XQc4kLp7om91zVH8" target="_blank" rel="noopener" class="btn btn-white">体験を予約する</a>
   <div class="cta-tel">
     <small>お電話でのご予約・お問い合わせ</small>
@@ -1526,10 +1519,6 @@ footer { background: var(--black); color: rgba(255,255,255,.8); padding: 60px 28
     mnav.classList.remove('open'); hbg.setAttribute('aria-expanded', false);
   }));
 
-  const io = new IntersectionObserver(es => {
-    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('[data-r]').forEach(el => io.observe(el));
   // 4D-Stretch の映像：見えたときだけ読み込んで再生
   const fdReduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const fdIo = new IntersectionObserver(es => es.forEach(e => {
